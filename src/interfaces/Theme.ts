@@ -1,5 +1,6 @@
 export interface ITheme {
   colors: IColors;
+  fonts: IFonts;
 }
 
 interface IColors {
@@ -7,4 +8,8 @@ interface IColors {
   black: string;
   eerieBlack: string;
   green: string;
+}
+
+interface IFonts {
+  primary: string;
 }

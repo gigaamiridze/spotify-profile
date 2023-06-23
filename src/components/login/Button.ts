@@ -4,13 +4,14 @@ const Button = styled.button`
   ${({ theme }) => css`
     background-color: ${theme.colors.green};
     color: ${theme.colors.eerieBlack};
+    font-family: ${theme.fonts.primary};
   `}
-  padding: 18px 35px;
+  padding: 16px 35px;
   border-radius: 30px;
   border: none;
   outline: none;
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 17px;
+  font-weight: 800;
   letter-spacing: 2px;
   text-transform: uppercase;
   cursor: pointer;

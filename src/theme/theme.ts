@@ -5,4 +5,7 @@ export const theme = {
     eerieBlack: '#181818',
     green: '#1db954',
   },
+  fonts: {
+    primary: 'Circular Std',
+  },
 }
