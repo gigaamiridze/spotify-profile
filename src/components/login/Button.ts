@@ -5,6 +5,7 @@ const Button = styled.button`
     background-color: ${theme.colors.green};
     color: ${theme.colors.eerieBlack};
     font-family: ${theme.fonts.primary};
+    transition: ${theme.transition};
   `}
   padding: 16px 35px;
   border-radius: 30px;
@@ -15,6 +16,10 @@ const Button = styled.button`
   letter-spacing: 2px;
   text-transform: uppercase;
   cursor: pointer;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.lightGreen};
+  }
 `;
 
 export default Button;
