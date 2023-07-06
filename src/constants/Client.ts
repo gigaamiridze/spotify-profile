@@ -1,0 +1,6 @@
+const { VITE_REACT_APP_CLIENT_ID, VITE_REACT_APP_CLIENT_SECRET } = import.meta.env;
+
+export enum Client {
+  ID = VITE_REACT_APP_CLIENT_ID,
+  SECRET = VITE_REACT_APP_CLIENT_SECRET,
+}

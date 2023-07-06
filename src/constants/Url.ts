@@ -1,0 +1,6 @@
+const { VITE_REACT_APP_API_URL, VITE_REACT_APP_REDIRECT_URL } = import.meta.env;
+
+export enum Url {
+  API = VITE_REACT_APP_API_URL,
+  REDIRECT = VITE_REACT_APP_REDIRECT_URL,
+}
