@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 const Button = styled.button`
   ${({ theme }) => css`
     background-color: ${theme.colors.green};
-    color: ${theme.colors.eerieBlack};
+    color: ${theme.colors.black};
     font-family: ${theme.fonts.primary};
     transition: ${theme.transition};
   `}
