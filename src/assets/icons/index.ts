@@ -1,0 +1,9 @@
+export { default as MicrophoneIcon } from './MicrophoneIcon';
+export { default as ExternalIcon } from './ExternalIcon';
+export { default as PlaylistIcon } from './PlaylistIcon';
+export { default as SpotifyIcon } from './SpotifyIcon';
+export { default as GithubIcon } from './GithubIcon';
+export { default as MusicIcon } from './MusicIcon';
+export { default as InfoIcon } from './InfoIcon';
+export { default as TimeIcon } from './TimeIcon';
+export { default as UserIcon } from './UserIcon';
