@@ -7,6 +7,7 @@ export interface ITheme {
 interface IColors {
   white: string;
   black: string;
+  navBlack: string;
   eerieBlack: string;
   lightGreen: string;
   green: string;
