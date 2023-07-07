@@ -11,3 +11,15 @@ export const getAccessTokenFromHash = () => {
 
 const getLocalAccessToken = () => localStorage.getItem(Spotify.ACCESS_TOKEN);
 const setLocalAccessToken = (token: string) => localStorage.setItem(Spotify.ACCESS_TOKEN, token);
+
+export const getAccessToken = () => {
+  const accessToken = getAccessTokenFromHash();
+  const localAccessToken = getLocalAccessToken();
+
+  if ((!localAccessToken || localAccessToken === 'undefined') && accessToken) {
+    setLocalAccessToken(accessToken);
+    return accessToken;
+  }
+  
+  return localAccessToken;
+}
