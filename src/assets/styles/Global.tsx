@@ -42,13 +42,14 @@ const GlobalStyles = createGlobalStyle`
     border-spacing: 0;
   }
   a {
+    display: inline-block;
     text-decoration: none;
   }
 
   // Element styles
   body {
     ${({ theme }) => css`
-      background-color: ${theme.colors.eerieBlack};
+      background-color: ${theme.colors.black};
       font-family: ${theme.fonts.primary};
     `}
   }
