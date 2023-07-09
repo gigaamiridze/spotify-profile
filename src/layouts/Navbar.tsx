@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { menu } from '../data';
+import { PageRoutes } from '../constants';
 import { useMenuItem } from '../contexts';
 import { SpotifyIcon, GithubIcon } from '../assets';
 import { NavbarContainer, LogoWrapper, GithubLink, Menu, MenuItem } from '../components';
@@ -10,7 +11,9 @@ function Navbar() {
   return (
     <NavbarContainer>
       <LogoWrapper>
-        <SpotifyIcon />
+        <Link to={PageRoutes.ROOT}>
+          <SpotifyIcon />
+        </Link>
       </LogoWrapper>
       <Menu>
         {menu.map(item => {

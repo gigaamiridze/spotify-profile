@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
+import { AvatarImg } from '../assets';
 import { useMenuItem } from '../contexts';
-import { Main } from '../components';
+import { Main, Header, Avatar, Username } from '../components';
 
 function User() {
   const { setActiveItem } = useMenuItem();
@@ -11,7 +12,16 @@ function User() {
 
   return (
     <Main>
-      User
+      <Header>
+        <Avatar src={AvatarImg} alt='avatar' />
+        <Username
+          href='#'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Felix
+        </Username>
+      </Header>
     </Main>
   )
 }
