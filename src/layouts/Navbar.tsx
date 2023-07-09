@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+import { PageRoutes } from '../constants';
 import { 
   SpotifyIcon, 
   GithubIcon,
@@ -17,34 +19,34 @@ function Navbar() {
       </LogoWrapper>
       <Menu>
         <MenuItem>
-          <a href='#'>
+          <Link to={PageRoutes.ROOT}>
             <UserIcon />
             <span>Profile</span>
-          </a>
+          </Link>
         </MenuItem>
         <MenuItem>
-          <a href='#'>
+          <Link to={PageRoutes.ARTISTS}>
             <MicrophoneIcon />
             <span>Top Artists</span>
-          </a>
+          </Link>
         </MenuItem>
         <MenuItem>
-          <a href='#'>
+          <Link to={PageRoutes.TRACKS}>
             <MusicIcon />
             <span>Top Tracks</span>
-          </a>
+          </Link>
         </MenuItem>
         <MenuItem>
-          <a href='#'>
+          <Link to={PageRoutes.RECENT}>
             <TimeIcon />
             <span>Recent</span>
-          </a>
+          </Link>
         </MenuItem>
         <MenuItem>
-          <a href='#'>
+          < Link to={PageRoutes.PLAYLISTS}>
             <PlaylistIcon />
             <span>Playlists</span>
-          </a>
+          </Link>
         </MenuItem>
       </Menu>
       <GithubLink
