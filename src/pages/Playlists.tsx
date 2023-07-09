@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useMenuItem } from '../contexts';
+import { Main } from '../components';
 
 function Playlists() {
   const { setActiveItem } = useMenuItem();
@@ -9,7 +10,9 @@ function Playlists() {
   }, []);
 
   return (
-    <div>Playlists</div>
+    <Main>
+      Playlists
+    </Main>
   )
 }
 

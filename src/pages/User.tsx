@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useMenuItem } from '../contexts';
+import { Main } from '../components';
 
 function User() {
   const { setActiveItem } = useMenuItem();
@@ -9,7 +10,9 @@ function User() {
   }, []);
 
   return (
-    <div>User</div>
+    <Main>
+      User
+    </Main>
   )
 }
 

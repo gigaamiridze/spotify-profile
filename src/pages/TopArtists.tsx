@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useMenuItem } from '../contexts';
+import { Main } from '../components';
 
 function TopArtists() {
   const { setActiveItem } = useMenuItem();
@@ -9,7 +10,9 @@ function TopArtists() {
   }, []);
 
   return (
-    <div>Top Artists</div>
+    <Main>
+      Top Artists
+    </Main>
   )
 }
 

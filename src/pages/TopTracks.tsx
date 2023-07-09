@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useMenuItem } from '../contexts';
+import { Main } from '../components';
 
 function TopTracks() {
   const { setActiveItem } = useMenuItem();
@@ -9,7 +10,9 @@ function TopTracks() {
   }, []);
 
   return (
-    <div>Top Tracks</div>
+    <Main>
+      Top Tracks
+    </Main>
   )
 }
 
