@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
 import { menu } from '../data';
+import { useMenuItem } from '../contexts';
 import { SpotifyIcon, GithubIcon } from '../assets';
 import { NavbarContainer, LogoWrapper, GithubLink, Menu, MenuItem } from '../components';
 
 function Navbar() {
+  const { activeItem } = useMenuItem();
+  
   return (
     <NavbarContainer>
       <LogoWrapper>
@@ -15,7 +18,10 @@ function Navbar() {
           const Icon = icon;
 
           return (
-            <MenuItem key={id}>
+            <MenuItem 
+              key={id}
+              isActive={id === activeItem}
+            >
               <Link to={path}>
                 <Icon />
                 <span>{title}</span>

@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { IMenuItemProps } from '../../interfaces';
 
 export const Menu = styled.ul`
   width: 100%;
@@ -6,11 +7,14 @@ export const Menu = styled.ul`
   flex-direction: column;
 `;
 
-export const MenuItem = styled.li`
+export const MenuItem = styled.li<IMenuItemProps>`
   a {
-    ${({ theme }) => css`
-      color: ${theme.colors.lightGrey};
-      fill: ${theme.colors.lightGrey};
+    border-left: 5px solid transparent;
+    ${({ isActive, theme }) => css`
+      color: ${isActive ? theme.colors.white : theme.colors.lightGrey};
+      fill: ${isActive ? theme.colors.white : theme.colors.lightGrey};
+      border-left-color: ${isActive && theme.colors.lightGreen};
+      background-color: ${isActive && theme.colors.black};
       transition: ${theme.transition};
     `}
     display: flex;
@@ -19,10 +23,8 @@ export const MenuItem = styled.li`
     row-gap: 7px;
     font-size: 11px;
     padding: 16px 0;
-    border-left: 5px solid transparent;
 
-    &:hover,
-    &:focus {
+    &:hover {
       ${({ theme }) => css`
         fill: ${theme.colors.white};
         color: ${theme.colors.white};

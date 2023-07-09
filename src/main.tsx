@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
+import { MenuItemProvider } from './contexts';
 import App from './App.tsx';
-import { StateProvider } from './contexts';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <StateProvider>
+      <MenuItemProvider>
         <App />
-      </StateProvider>
+      </MenuItemProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
