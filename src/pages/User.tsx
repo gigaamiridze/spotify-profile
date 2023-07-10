@@ -1,7 +1,12 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { AvatarImg } from '../assets';
 import { useMenuItem } from '../contexts';
-import { Main, Header, Avatar, Username } from '../components';
+import { PageRoutes } from '../constants';
+import { 
+  Main, Header, Avatar, Username, 
+  Stats, Stat, Number, NumLabel 
+} from '../components';
 
 function User() {
   const { setActiveItem } = useMenuItem();
@@ -21,6 +26,22 @@ function User() {
         >
           Felix
         </Username>
+        <Stats>
+          <Stat>
+            <Number>0</Number>
+            <NumLabel>followers</NumLabel>
+          </Stat>
+          <Stat>
+            <Number>3</Number>
+            <NumLabel>following</NumLabel>
+          </Stat>
+          <Stat>
+            <Link to={PageRoutes.PLAYLISTS}>
+              <Number>2</Number>
+              <NumLabel>playlists</NumLabel>
+            </Link>
+          </Stat>
+        </Stats>
       </Header>
     </Main>
   )
