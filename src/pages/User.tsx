@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { AvatarImg } from '../assets';
 import { useMenuItem } from '../contexts';
 import { PageRoutes } from '../constants';
+import { Logout } from '../layouts';
 import { 
   Main, Header, Avatar, Username, 
   Stats, Stat, Number, NumLabel 
@@ -42,6 +43,7 @@ function User() {
             </Link>
           </Stat>
         </Stats>
+        <Logout />
       </Header>
     </Main>
   )

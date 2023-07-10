@@ -5,7 +5,6 @@ const Header = styled.header`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  row-gap: 20px; 
 `;
 
 export default Header;

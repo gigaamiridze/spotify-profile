@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 export const Stats = styled.div`
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   column-gap: 30px;
+  margin-bottom: 40px;
 `;
 
 export const Stat = styled.div`

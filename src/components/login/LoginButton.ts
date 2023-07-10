@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const Button = styled.button`
+const LoginButton = styled.button`
   ${({ theme }) => css`
     background-color: ${theme.colors.green};
     color: ${theme.colors.black};
@@ -22,4 +22,4 @@ const Button = styled.button`
   }
 `;
 
-export default Button;
+export default LoginButton;

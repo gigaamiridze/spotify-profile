@@ -7,6 +7,7 @@ const Username = styled.a`
   `}
   font-size: 50px;
   font-weight: 700;
+  margin: 25px 0;
 
   &:hover {
     color: ${({ theme }) => theme.colors.lightGreen};
