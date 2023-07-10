@@ -1,9 +1,10 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { AvatarImg } from '../assets';
 import { useMenuItem } from '../contexts';
 import { PageRoutes } from '../constants';
 import { Logout } from '../layouts';
+import { IUser, IFollowing, IPlaylists } from '../interfaces';
 import { 
   Main, Header, Avatar, Username, 
   Stats, Stat, Number, NumLabel 
@@ -11,6 +12,9 @@ import {
 
 function User() {
   const { setActiveItem } = useMenuItem();
+  const [user, setUser] = useState<IUser | null>(null);  
+  const [following, setFollowing] = useState<IFollowing | null>(null);
+  const [playlists, setPlaylists] = useState<IPlaylists | null>(null);
 
   useEffect(() => {
     setActiveItem(1);

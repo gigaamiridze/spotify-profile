@@ -15,9 +15,9 @@ export const getUserInfo = () => {
     axios
       .all([getUser(), getFollowing(), getPlaylists()])
       .then(
-        axios.spread((user, followedArtists, playlists) => ({
+        axios.spread((user, following, playlists) => ({
           user: user.data,
-          followedArtists: followedArtists.data,
+          following: following.data,
           playlists: playlists.data,
         })),
       )
