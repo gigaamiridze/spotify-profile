@@ -1,6 +1,6 @@
 import { Spotify } from '../constants';
 
-export const getAccessTokenFromHash = () => {
+const getAccessTokenFromHash = () => {
   const hash = location.hash.substring(1);
 
   if (hash) {
