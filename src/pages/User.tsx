@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { UserIcon } from '../assets';
 import { getUserInfo } from '../utils';
 import { useMenuItem } from '../contexts';
 import { PageRoutes } from '../constants';
 import { Logout } from '../layouts';
 import { IUser, IFollowing, IPlaylists } from '../interfaces';
 import {
-  Main, Header, Avatar, Username,
+  Main, Header, Avatar, NoAvatar, Username,
   Stats, Stat, Number, NumLabel
 } from '../components';
 
@@ -39,7 +40,9 @@ function User() {
                 alt={`${user.display_name}'s avatar`} 
               />
             ) : (
-              <div>No Avatar</div>
+              <NoAvatar>
+                <UserIcon />
+              </NoAvatar>
             )}
             <Username
               href={user.external_urls.spotify}
