@@ -1,6 +1,6 @@
 import { ISpotifyGeneral } from './General';
+import { IExternalUrls } from './External';
 import { IFollowers } from './Followers';
-import { IExternalUrls } from './Url';
 import { IImage } from './Image';
 
 export interface IUser extends ISpotifyGeneral {

@@ -1,5 +1,5 @@
 import { ISpotifyGeneral } from './General';
-import { IExternalUrls } from './Url';
+import { IExternalUrls } from './External';
 import { IImage } from './Image';
 
 export interface IPlaylists {

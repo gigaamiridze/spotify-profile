@@ -5,7 +5,7 @@ import { getUserInfo } from '../utils';
 import { useMenuItem } from '../contexts';
 import { PageRoutes } from '../constants';
 import { Logout, Loader } from '../layouts';
-import { IUser, IFollowing, IPlaylists } from '../interfaces';
+import { IUser, IFollowing, IPlaylists, IArtists, ITracks } from '../interfaces';
 import {
   Main, Header, Avatar, NoAvatar, Username, Stats, Stat, 
   Number, NumLabel, SeeMoreButton, Preview, PreviewHeading 
@@ -16,6 +16,8 @@ function User() {
   const [user, setUser] = useState<IUser | null>(null);
   const [following, setFollowing] = useState<IFollowing | null>(null);
   const [playlists, setPlaylists] = useState<IPlaylists | null>(null);
+  const [topArtists, setTopArtists] = useState<IArtists | null>(null);
+  const [topTracks, setTopTracks] = useState<ITracks | null>(null); 
 
   useEffect(() => {
     setActiveItem(1);
@@ -23,11 +25,13 @@ function User() {
   }, []);
 
   const getData = async () => {
-    const { user, following, playlists } = await getUserInfo();
+    const { user, following, playlists, topArtists, topTracks } = await getUserInfo();
     
     setUser(user);
     setFollowing(following);
     setPlaylists(playlists);
+    setTopArtists(topArtists);
+    setTopTracks(topTracks);
   }
 
   return (

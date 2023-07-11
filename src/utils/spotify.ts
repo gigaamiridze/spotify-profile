@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { requestConfig } from '../config';
-import { TopTracks } from '../pages';
 
 // Get Current User's Profile
 const getUser = () => axios.get('/', { ...requestConfig });

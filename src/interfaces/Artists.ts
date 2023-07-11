@@ -3,13 +3,9 @@ import { IExternalUrls } from './External';
 import { IFollowers } from './Followers';
 import { IImage } from './Image';
 
-export interface IFollowing {
-  artists: IFollowingArtists;
-}
-
-interface IFollowingArtists {
-  items: IArtistItem[];
+export interface IArtists {
   href: string;
+  items: IArtistItem[];
   limit: number;
   total: number;
 }
@@ -17,8 +13,8 @@ interface IFollowingArtists {
 interface IArtistItem extends ISpotifyGeneral {
   external_urls: IExternalUrls;
   followers: IFollowers;
-  genres: string[];
   images: IImage[];
+  genres: string[];
   name: string;
-  popularity: string;
+  popularity: number;
 }
