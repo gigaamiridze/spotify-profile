@@ -4,7 +4,7 @@ import { UserIcon } from '../assets';
 import { getUserInfo } from '../utils';
 import { useMenuItem } from '../contexts';
 import { PageRoutes } from '../constants';
-import { Logout } from '../layouts';
+import { Logout, Loader } from '../layouts';
 import { IUser, IFollowing, IPlaylists } from '../interfaces';
 import {
   Main, Header, Avatar, NoAvatar, Username,
@@ -24,6 +24,7 @@ function User() {
 
   const getData = async () => {
     const { user, following, playlists } = await getUserInfo();
+    
     setUser(user);
     setFollowing(following);
     setPlaylists(playlists);
@@ -71,7 +72,7 @@ function User() {
           </Header>
         </Main>
       ) : (
-        <div>Loading</div>
+        <Loader />
       )}
     </>
   )

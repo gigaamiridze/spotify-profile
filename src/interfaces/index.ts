@@ -4,3 +4,4 @@ export * from './Playlists';
 export * from './Theme';
 export * from './Menu';
 export * from './User';
+export * from './Bar';
