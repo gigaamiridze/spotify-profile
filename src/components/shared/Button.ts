@@ -9,7 +9,6 @@ const Button = styled.button`
   `}
   background-color: transparent;
   border-radius: 30px;
-  padding: 12px 30px;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -25,4 +24,11 @@ const Button = styled.button`
   }
 `;
 
-export default Button;
+export const LogoutButton = styled(Button)`
+  padding: 12px 30px;
+`;
+
+export const SeeMoreButton = styled(Button)`
+  white-space: nowrap;
+  padding: 11px 25px;
+`;

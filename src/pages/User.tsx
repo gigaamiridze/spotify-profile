@@ -7,8 +7,8 @@ import { PageRoutes } from '../constants';
 import { Logout, Loader } from '../layouts';
 import { IUser, IFollowing, IPlaylists } from '../interfaces';
 import {
-  Main, Header, Avatar, NoAvatar, Username,
-  Stats, Stat, Number, NumLabel
+  Main, Header, Avatar, NoAvatar, Username, Stats, Stat, 
+  Number, NumLabel, SeeMoreButton, Preview, PreviewHeading 
 } from '../components';
 
 function User() {
@@ -70,6 +70,24 @@ function User() {
             </Stats>
             <Logout />
           </Header>
+          <Preview>
+            <div>
+              <PreviewHeading>
+                <h3>Top Artists of All Time</h3>
+                <Link to={PageRoutes.ARTISTS}>
+                  <SeeMoreButton>see more</SeeMoreButton>
+                </Link>
+              </PreviewHeading>
+            </div>
+            <div>
+              <PreviewHeading>
+                <h3>Top Tracks of All Time</h3>
+                <Link to={PageRoutes.TRACKS}>
+                  <SeeMoreButton>see more</SeeMoreButton>
+                </Link>
+              </PreviewHeading>
+            </div>
+          </Preview>
         </Main>
       ) : (
         <Loader />

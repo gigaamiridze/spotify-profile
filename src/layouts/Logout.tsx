@@ -1,4 +1,4 @@
-import { Button } from '../components';
+import { LogoutButton } from '../components';
 import { Spotify } from '../constants';
 
 function Logout() {
@@ -8,9 +8,9 @@ function Logout() {
   }
 
   return (
-    <Button onClick={handleLogout}>
+    <LogoutButton onClick={handleLogout}>
       Logout
-    </Button>
+    </LogoutButton>
   )
 }
 
