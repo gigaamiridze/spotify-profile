@@ -6,4 +6,5 @@ export * from './Tracks';
 export * from './Theme';
 export * from './Menu';
 export * from './User';
+export * from './Item';
 export * from './Bar';

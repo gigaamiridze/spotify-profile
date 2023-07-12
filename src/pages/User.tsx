@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { UserIcon, InfoIcon, ArtistImg } from '../assets';
+import { UserIcon } from '../assets';
 import { getUserInfo } from '../utils';
 import { useMenuItem } from '../contexts';
 import { PageRoutes } from '../constants';
-import { Logout, Loader } from '../layouts';
 import { IUser, IFollowing, IPlaylists, IArtists, ITracks } from '../interfaces';
+import { Logout, Loader, ArtistItem, TrackItem } from '../layouts';
 import {
-  Main, Header, Avatar, NoAvatar, Username, Stats, Stat, 
-  Number, NumLabel, SeeMoreButton, Preview, PreviewHeading,
-  ItemsList, Item, ItemArtwork, ItemImage, ItemName, Mask 
+  Main, Header, Avatar, NoAvatar, Username, 
+  Stats, Stat, Number, NumLabel, SeeMoreButton, 
+  Preview, PreviewHeading, ItemsList 
 } from '../components';
 
 function User() {
@@ -84,19 +84,7 @@ function User() {
                 </Link>
               </PreviewHeading>
               <ItemsList>
-                <Item>
-                  <Link to='#'>
-                    <ItemArtwork>
-                      <ItemImage src={ArtistImg} alt='artist' />
-                      <Mask>
-                        <InfoIcon />
-                      </Mask>
-                    </ItemArtwork>
-                  </Link>
-                  <Link to='#'>
-                    <ItemName>Justin Bieber</ItemName>
-                  </Link>
-                </Item>
+                <ArtistItem />
               </ItemsList>
             </div>
             <div>
@@ -106,6 +94,9 @@ function User() {
                   <SeeMoreButton>see more</SeeMoreButton>
                 </Link>
               </PreviewHeading>
+              <ItemsList>
+                <TrackItem />
+              </ItemsList>
             </div>
           </Preview>
         </Main>

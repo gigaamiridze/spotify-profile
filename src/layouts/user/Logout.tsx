@@ -1,5 +1,5 @@
-import { LogoutButton } from '../components';
-import { Spotify } from '../constants';
+import { LogoutButton } from '../../components';
+import { Spotify } from '../../constants';
 
 function Logout() {
   const handleLogout = () => {

@@ -6,6 +6,7 @@ const LogoWrapper = styled.div`
       fill: ${theme.colors.green};
       transition: ${theme.transition};
     `}
+    outline: none;
     cursor: pointer;
 
     &:hover,
