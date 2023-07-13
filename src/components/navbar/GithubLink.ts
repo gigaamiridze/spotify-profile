@@ -13,6 +13,10 @@ const GithubLink = styled.a`
   svg {
     width: 30px;
   }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export default GithubLink;

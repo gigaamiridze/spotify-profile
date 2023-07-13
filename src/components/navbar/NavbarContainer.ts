@@ -15,6 +15,16 @@ const NavbarContainer = styled.div`
   top: 0;
   left: 0;
   z-index: 100;
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    min-height: 70px;
+    height: 70px;
+    padding: 0;
+    top: auto;
+    bottom: 0;
+    flex-direction: row;
+  }
 `;
 
 export default NavbarContainer;

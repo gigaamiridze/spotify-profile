@@ -7,7 +7,7 @@ import { NavbarContainer, LogoWrapper, GithubLink, Menu, MenuItem } from '../com
 
 function Navbar() {
   const { activeItem } = useMenuItem();
-  
+
   return (
     <NavbarContainer>
       <LogoWrapper>
@@ -21,7 +21,7 @@ function Navbar() {
           const Icon = icon;
 
           return (
-            <MenuItem 
+            <MenuItem
               key={id}
               isActive={id === activeItem}
             >

@@ -18,6 +18,10 @@ const LogoWrapper = styled.div`
       width: 50px;
     }
   }
+    
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export default LogoWrapper;
