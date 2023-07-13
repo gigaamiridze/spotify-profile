@@ -6,6 +6,10 @@ export const ItemsList = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 30px;
+  
+  @media (max-width: 768px) {
+    row-gap: 20px;
+  }
 `;
 
 export const Item = styled.li<IItemLayout>`

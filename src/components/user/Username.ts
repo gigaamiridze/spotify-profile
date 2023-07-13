@@ -12,6 +12,14 @@ const Username = styled.a`
   &:hover {
     color: ${({ theme }) => theme.colors.lightGreen};
   }
+  
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 8vw;
+  }
 `;
 
 export default Username;

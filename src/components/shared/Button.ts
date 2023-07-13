@@ -26,9 +26,17 @@ const Button = styled.button`
 
 export const LogoutButton = styled(Button)`
   padding: 12px 30px;
+
+  @media (max-width: 768px) {
+    padding: 11px 25px;
+  }
 `;
 
 export const SeeMoreButton = styled(Button)`
   white-space: nowrap;
   padding: 11px 25px;
+  
+  @media (max-width: 768px) {
+    padding: 10px 20px;
+  }
 `;
