@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { InfoIcon } from '../../assets';
 import { PageRoutes } from '../../constants';
+import { formatDuration } from '../../utils';
 import { ITrackItemProps } from '../../interfaces';
 import {
   Item, ItemArtwork, ItemImage, ItemName,
@@ -37,7 +38,7 @@ function TrackItem({ track }: ITrackItemProps) {
               {album.name}
             </ItemGreyTitle>
           </div>
-          <ItemGreyTitle>3:13</ItemGreyTitle>
+          <ItemGreyTitle>{formatDuration(duration_ms)}</ItemGreyTitle>
         </ItemMeta>
       </Item>
     </Link>
