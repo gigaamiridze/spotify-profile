@@ -7,9 +7,9 @@ import { PageRoutes } from '../constants';
 import { IUser, IFollowing, IPlaylists, IArtists, ITracks } from '../interfaces';
 import { Logout, Loader, ArtistItem, TrackItem } from '../layouts';
 import {
-  Main, Header, Avatar, NoAvatar, Username, 
-  Stats, Stat, Number, NumLabel, SeeMoreButton, 
-  Preview, PreviewHeading, ItemsList 
+  Main, Header, Avatar, NoAvatar, Username,
+  Stats, Stat, Number, NumLabel, SeeMoreButton,
+  Preview, PreviewHeading, ItemsList
 } from '../components';
 
 function User() {
@@ -18,7 +18,7 @@ function User() {
   const [following, setFollowing] = useState<IFollowing | null>(null);
   const [playlists, setPlaylists] = useState<IPlaylists | null>(null);
   const [topArtists, setTopArtists] = useState<IArtists | null>(null);
-  const [topTracks, setTopTracks] = useState<ITracks | null>(null); 
+  const [topTracks, setTopTracks] = useState<ITracks | null>(null);
 
   useEffect(() => {
     setActiveItem(1);
@@ -27,7 +27,7 @@ function User() {
 
   const getData = async () => {
     const { user, following, playlists, topArtists, topTracks } = await getUserInfo();
-    
+
     setUser(user);
     setFollowing(following);
     setPlaylists(playlists);
@@ -35,15 +35,17 @@ function User() {
     setTopTracks(topTracks);
   }
 
+  console.log(topArtists);
+
   return (
     <>
       {user ? (
         <Main>
           <Header>
             {user.images.length > 0 ? (
-              <Avatar 
-                src={user.images[1].url} 
-                alt={`${user.display_name}'s avatar`} 
+              <Avatar
+                src={user.images[1].url}
+                alt={`${user.display_name}'s avatar`}
               />
             ) : (
               <NoAvatar>
@@ -84,7 +86,9 @@ function User() {
                 </Link>
               </PreviewHeading>
               <ItemsList>
-                <ArtistItem />
+                {topArtists?.items.slice(0, 10).map((artist, index) => (
+                  <ArtistItem key={index} artist={artist} />
+                ))}
               </ItemsList>
             </div>
             <div>

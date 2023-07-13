@@ -10,11 +10,15 @@ export interface IArtists {
   total: number;
 }
 
-interface IArtistItem extends ISpotifyGeneral {
+export interface IArtistItem extends ISpotifyGeneral {
   external_urls: IExternalUrls;
   followers: IFollowers;
   images: IImage[];
   genres: string[];
   name: string;
   popularity: number;
+}
+
+export interface IArtistItemProps {
+  artist: IArtistItem;
 }
