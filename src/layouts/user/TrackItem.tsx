@@ -1,18 +1,22 @@
 import { Link } from 'react-router-dom';
-import { InfoIcon, ArtistImg } from '../../assets';
-import { 
-  Item, ItemArtwork, ItemImage, ItemName, 
-  Mask, ItemMeta, ItemGreyTitle 
+import { InfoIcon } from '../../assets';
+import { PageRoutes } from '../../constants';
+import { ITrackItemProps } from '../../interfaces';
+import {
+  Item, ItemArtwork, ItemImage, ItemName,
+  Mask, ItemMeta, ItemGreyTitle
 } from '../../components';
 
-function TrackItem() {
+function TrackItem({ track }: ITrackItemProps) {
+  const { id, name, album, artists, duration_ms } = track;
+
   return (
-    <Link to='#'>
+    <Link to={`${PageRoutes.TRACKS}/${id}`}>
       <Item isArtistContent={false}>
         <ItemArtwork>
           <ItemImage
             isArtistContent={false}
-            src={ArtistImg}
+            src={album.images[2].url}
             alt='artist'
           />
           <Mask isArtistContent={false}>
@@ -21,10 +25,19 @@ function TrackItem() {
         </ItemArtwork>
         <ItemMeta>
           <div>
-            <ItemName>Justin Bieber</ItemName>
-            <ItemGreyTitle>Justin Bieber - Justice</ItemGreyTitle>
+            <ItemName>{name}</ItemName>
+            <ItemGreyTitle>
+              {artists.map(({name}, index) => (
+                <span key={index}>
+                  {name}
+                  {artists.length > 0 && index === track.artists.length - 1 ? '' : ','}&nbsp;
+                </span>
+              ))}
+              &nbsp;&middot;&nbsp;&nbsp;
+              {album.name}
+            </ItemGreyTitle>
           </div>
-          <ItemGreyTitle>3.13</ItemGreyTitle>
+          <ItemGreyTitle>3:13</ItemGreyTitle>
         </ItemMeta>
       </Item>
     </Link>

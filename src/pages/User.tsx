@@ -35,8 +35,6 @@ function User() {
     setTopTracks(topTracks);
   }
 
-  console.log(topArtists);
-
   return (
     <>
       {user ? (
@@ -86,9 +84,15 @@ function User() {
                 </Link>
               </PreviewHeading>
               <ItemsList>
-                {topArtists?.items.slice(0, 10).map((artist, index) => (
-                  <ArtistItem key={index} artist={artist} />
-                ))}
+                {topArtists ? (
+                  <>
+                    {topArtists.items.slice(0, 10).map((artist, index) => (
+                      <ArtistItem key={index} artist={artist} />
+                    ))}
+                  </>
+                ) : (
+                  <Loader />
+                )}
               </ItemsList>
             </div>
             <div>
@@ -99,7 +103,15 @@ function User() {
                 </Link>
               </PreviewHeading>
               <ItemsList>
-                <TrackItem />
+                {topTracks ? (
+                  <>
+                    {topTracks.items.slice(0, 10).map((track, index) => (
+                      <TrackItem key={index} track={track} />
+                    ))}
+                  </>
+                ) : (
+                  <Loader />
+                )}
               </ItemsList>
             </div>
           </Preview>

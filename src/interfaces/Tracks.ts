@@ -9,7 +9,7 @@ export interface ITracks {
   total: number;
 }
 
-interface ITrackItem extends ISpotifyGeneral {
+export interface ITrackItem extends ISpotifyGeneral {
   album: IAlbum;
   artists: ITrackArtist[];
   available_markets: string[];
@@ -40,4 +40,8 @@ interface IAlbum extends ISpotifyGeneral {
 interface ITrackArtist extends ISpotifyGeneral {
   name: string;
   external_urls: IExternalUrls;
+}
+
+export interface ITrackItemProps {
+  track: ITrackItem;
 }
