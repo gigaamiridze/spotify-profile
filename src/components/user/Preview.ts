@@ -19,11 +19,21 @@ export const PreviewHeading = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  column-gap: 25px;
   margin-bottom: 40px;
 
   h3 {
     color: ${({ theme }) => theme.colors.white};
-    font-size: 19px;
+    font-size: clamp(15px, 3.8vw, 19px);
     font-weight: 900;
+    line-height: 25px;
+
+    @media (max-width: 375px) {
+      line-height: 22px;
+    }
+
+    @media (max-width: 320px) {
+      line-height: 20px;
+    }
   }
 `;

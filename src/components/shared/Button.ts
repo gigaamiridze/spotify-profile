@@ -9,7 +9,7 @@ const Button = styled.button`
   `}
   background-color: transparent;
   border-radius: 30px;
-  font-size: 12px;
+  font-size: clamp(11px, 3vw, 12px);
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -30,6 +30,10 @@ export const LogoutButton = styled(Button)`
   @media (max-width: 768px) {
     padding: 11px 25px;
   }
+
+  @media (max-width: 375px) {
+    padding: 10px 25px;
+  }
 `;
 
 export const SeeMoreButton = styled(Button)`
@@ -38,5 +42,9 @@ export const SeeMoreButton = styled(Button)`
   
   @media (max-width: 768px) {
     padding: 10px 20px;
+  }
+
+  @media (max-width: 375px) {
+    padding: 9px 17px;
   }
 `;
