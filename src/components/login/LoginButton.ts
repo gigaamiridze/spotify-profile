@@ -20,6 +20,25 @@ const LoginButton = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.colors.lightGreen};
   }
+  
+  @media (max-width: 768px) {
+    padding: 15px 35px;
+    font-size: 16px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: 375px) {
+    padding: 14px 35px;
+    font-size: 14px;
+  }
+  
+  @media (max-width: 320px) {
+    padding: 13px 30px;
+    font-size: 13px;
+  }
 `;
 
 export default LoginButton;
