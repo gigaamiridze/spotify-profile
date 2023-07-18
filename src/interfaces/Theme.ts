@@ -3,6 +3,7 @@ export interface ITheme {
   fonts: IFonts;
   easing: IEasing;
   transition: string;
+  coverShadow: string;
 }
 
 interface IColors {

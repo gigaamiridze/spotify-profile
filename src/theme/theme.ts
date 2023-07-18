@@ -26,4 +26,5 @@ export const theme = {
     easeInOutBack: `cubic-bezier(0.68, -0.55, 0.265, 1.55)`,
   },
   transition: 'all 0.25s ease-out',
+  coverShadow: '0 0 10px rgba(0, 0, 0, 0.3)',
 }

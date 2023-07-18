@@ -5,8 +5,8 @@ export interface IMenuItemProps {
 }
 
 export interface IMenuItemContext {
-  activeItem: number;
-  setActiveItem: React.Dispatch<React.SetStateAction<number>>;
+  activeItem: number | null;
+  setActiveItem: React.Dispatch<React.SetStateAction<number | null>>;
 }
 
 export interface IMenuItemProvider {

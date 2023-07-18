@@ -8,7 +8,7 @@ export function useMenuItem() {
 }
 
 export function MenuItemProvider({children}: IMenuItemProvider) {
-  const [activeItem, setActiveItem] = useState<number>(0);
+  const [activeItem, setActiveItem] = useState<number | null>(0);
   const value = { activeItem, setActiveItem };
 
   return (
