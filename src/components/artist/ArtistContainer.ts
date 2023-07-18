@@ -6,6 +6,7 @@ const ArtistContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  row-gap: 35px;
 `;
 
 export default ArtistContainer;

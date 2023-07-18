@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useMenuItem } from '../contexts';
 import { IArtist } from '../interfaces';
 import { getArtist } from '../utils';
-import { Main, ArtistContainer, ArtistImage } from '../components';
+import { Main, ArtistContainer, ArtistImage, ArtistName } from '../components';
 
 function Artist() {
   const { artistId } = useParams();
@@ -29,6 +29,7 @@ function Artist() {
           src={artist?.images[0].url} 
           alt={`${artist?.name}'s image`} 
         />
+        <ArtistName>{artist?.name}</ArtistName>
       </ArtistContainer>
     </Main>
   )
