@@ -47,6 +47,9 @@ export const ItemMeta = styled.div`
     flex-direction: column;
     align-items: flex-start;
     row-gap: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 `;
 
@@ -57,7 +60,6 @@ export const ItemName = styled.span`
   `}
   font-size: 16px;
   border-bottom: 1px solid transparent;
-  white-space: nowrap;
 
   &:hover {
     border-bottom-color: ${({ theme }) => theme.colors.white};
@@ -67,5 +69,4 @@ export const ItemName = styled.span`
 export const ItemGreyTitle = styled.span`
   color: ${({ theme }) => theme.colors.lightGrey};
   font-size: 14px;
-  white-space: nowrap;
 `;

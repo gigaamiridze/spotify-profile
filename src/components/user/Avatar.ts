@@ -13,6 +13,7 @@ export const NoAvatar = styled.div`
   padding: 30px;
 
   svg {
+    fill: ${({ theme }) => theme.colors.white};
     width: 85px;
     height: 85px;
     

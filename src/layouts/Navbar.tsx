@@ -34,7 +34,7 @@ function Navbar() {
         })}
       </Menu>
       <GithubLink
-        href='https://github.com/justtfelix/spotify-profile'
+        href='https://github.com/gigaamiridze/spotify-profile'
         target='_blank'
         rel='noopener noreferrer'
       >
