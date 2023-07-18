@@ -33,7 +33,7 @@ const getTopTracksLong = () =>
   axios.get('/top/tracks?limit=50&time_range=long_term', { ...requestConfig });
 
 // Get an artist
-export const getArtist = (artistId: number) => 
+export const getArtist = (artistId: string) => 
   axios.get(`https://api.spotify.com/v1/artists/${artistId}`, { headers });
 
 export const getUserInfo = () => {

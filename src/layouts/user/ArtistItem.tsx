@@ -8,7 +8,7 @@ function ArtistItem({ artist }: IArtistItemProps) {
   const { id, name, images } = artist;
 
   return (
-    <Link to={`${PageRoutes.ARTISTS}/${id}`}>
+    <Link to={`${PageRoutes.ARTIST}/${id}`}>
       <Item isArtistContent={true}>
         <ItemArtwork>
           <ItemImage

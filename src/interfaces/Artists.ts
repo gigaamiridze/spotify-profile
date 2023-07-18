@@ -1,24 +1,8 @@
-import { ISpotifyGeneral } from './General';
-import { IExternalUrls } from './External';
-import { IFollowers } from './Followers';
-import { IImage } from './Image';
+import { IArtist } from './Artist';
 
 export interface IArtists {
   href: string;
-  items: IArtistItem[];
+  items: IArtist[];
   limit: number;
   total: number;
-}
-
-export interface IArtistItem extends ISpotifyGeneral {
-  external_urls: IExternalUrls;
-  followers: IFollowers;
-  images: IImage[];
-  genres: string[];
-  name: string;
-  popularity: number;
-}
-
-export interface IArtistItemProps {
-  artist: IArtistItem;
 }
