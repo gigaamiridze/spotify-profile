@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { requestConfig } from '../config';
 
+const { headers } = requestConfig;
+
 // Get Current User's Profile
 const getUser = () => axios.get('/', { ...requestConfig });
 
@@ -29,6 +31,10 @@ const getTopTracksMedium = () =>
 
 const getTopTracksLong = () =>
   axios.get('/top/tracks?limit=50&time_range=long_term', { ...requestConfig });
+
+// Get an artist
+export const getArtist = (artistId: number) => 
+  axios.get(`https://api.spotify.com/v1/artists/${artistId}`, { headers });
 
 export const getUserInfo = () => {
   return (
