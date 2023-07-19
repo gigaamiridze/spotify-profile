@@ -1,4 +1,4 @@
-import { LoaderContainer, Bars, Bar } from '../components';
+import { LoaderContainer, Bars, Bar } from '../../components';
 
 function Loader() {
   return (

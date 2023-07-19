@@ -3,7 +3,10 @@ import { useParams } from 'react-router-dom';
 import { useMenuItem } from '../contexts';
 import { IArtist } from '../interfaces';
 import { getArtist } from '../utils';
-import { Main, ArtistContainer, ArtistImage, ArtistName } from '../components';
+import { 
+  ArtistContainer, ArtistImage, ArtistName, 
+  Main, Stats, Stat, Number, NumLabel 
+} from '../components';
 
 function Artist() {
   const { artistId } = useParams();
@@ -25,11 +28,25 @@ function Artist() {
   return (
     <Main>
       <ArtistContainer>
-        <ArtistImage 
-          src={artist?.images[0].url} 
-          alt={`${artist?.name}'s image`} 
+        <ArtistImage
+          src={artist?.images[0].url}
+          alt={`${artist?.name}'s image`}
         />
         <ArtistName>{artist?.name}</ArtistName>
+        <Stats isArtistContent={true}>
+          <Stat>
+            <Number isArtistContent={true}>{artist?.followers.total}</Number>
+            <NumLabel>followers</NumLabel>
+          </Stat>
+          <Stat>
+            <Number isArtistContent={true}>{artist?.genres[0]}</Number>
+            <NumLabel>genres</NumLabel>
+          </Stat>
+          <Stat>
+            <Number isArtistContent={true}>{artist?.popularity}%</Number>
+            <NumLabel>popularity</NumLabel>
+          </Stat>
+        </Stats>
       </ArtistContainer>
     </Main>
   )

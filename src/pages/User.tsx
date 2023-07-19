@@ -57,18 +57,18 @@ function User() {
             >
               {user.display_name}
             </Username>
-            <Stats>
+            <Stats isArtistContent={false}>
               <Stat>
-                <Number>{user.followers.total}</Number>
+                <Number isArtistContent={false}>{user.followers.total}</Number>
                 <NumLabel>followers</NumLabel>
               </Stat>
               <Stat>
-                <Number>{following?.artists.total}</Number>
+                <Number isArtistContent={false}>{following?.artists.total}</Number>
                 <NumLabel>following</NumLabel>
               </Stat>
               <Stat>
                 <Link to={PageRoutes.PLAYLISTS}>
-                  <Number>{playlists?.total}</Number>
+                  <Number isArtistContent={false}>{playlists?.total}</Number>
                   <NumLabel>playlists</NumLabel>
                 </Link>
               </Stat>

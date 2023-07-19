@@ -26,6 +26,7 @@ const Button = styled.button`
 
 export const LogoutButton = styled(Button)`
   padding: 12px 30px;
+  margin-top: 40px;
 
   @media (max-width: 768px) {
     padding: 11px 25px;
@@ -33,6 +34,7 @@ export const LogoutButton = styled(Button)`
 
   @media (max-width: 375px) {
     padding: 10px 25px;
+    margin-top: 30px;
   }
 `;
 
