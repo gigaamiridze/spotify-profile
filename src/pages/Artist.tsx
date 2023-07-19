@@ -41,10 +41,14 @@ function Artist() {
                 <Number isArtistContent={true}>{artist.followers.total}</Number>
                 <NumLabel>followers</NumLabel>
               </Stat>
-              <Stat>
-                <Number isArtistContent={true}>{artist.genres[0]}</Number>
-                <NumLabel>genres</NumLabel>
-              </Stat>
+              <>
+                {artist.genres.length > 0 && (
+                  <Stat>
+                    <Number isArtistContent={true}>{artist.genres[0]}</Number>
+                    <NumLabel>genres</NumLabel>
+                  </Stat>
+                )}
+              </>
               <Stat>
                 <Number isArtistContent={true}>{artist.popularity}%</Number>
                 <NumLabel>popularity</NumLabel>
