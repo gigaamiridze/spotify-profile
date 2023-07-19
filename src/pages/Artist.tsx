@@ -4,7 +4,7 @@ import { useMenuItem } from '../contexts';
 import { IArtist } from '../interfaces';
 import { getArtist } from '../utils';
 import { 
-  ArtistContainer, ArtistImage, ArtistName, 
+  ArtistContainer, ArtistImage, Username, 
   Main, Stats, Stat, Number, NumLabel 
 } from '../components';
 
@@ -32,7 +32,7 @@ function Artist() {
           src={artist?.images[0].url}
           alt={`${artist?.name}'s image`}
         />
-        <ArtistName>{artist?.name}</ArtistName>
+        <Username isArtistContent={true}>{artist?.name}</Username>
         <Stats isArtistContent={true}>
           <Stat>
             <Number isArtistContent={true}>{artist?.followers.total}</Number>

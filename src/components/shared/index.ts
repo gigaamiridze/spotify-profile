@@ -1,3 +1,4 @@
+export { default as Username } from './Username';
 export { default as Main } from './Main';
 export { default as Mask } from './Mask';
 export * from './Statistic';

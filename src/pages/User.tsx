@@ -50,13 +50,14 @@ function User() {
                 <UserIcon />
               </NoAvatar>
             )}
-            <Username
+            <a 
               href={user.external_urls.spotify}
               target='_blank'
               rel='noopener noreferrer'
+              style={{ marginTop: 25, marginBottom: 25 }}
             >
-              {user.display_name}
-            </Username>
+              <Username isArtistContent={false}>{user.display_name}</Username>
+            </a>
             <Stats isArtistContent={false}>
               <Stat>
                 <Number isArtistContent={false}>{user.followers.total}</Number>
