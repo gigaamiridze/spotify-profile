@@ -46,7 +46,7 @@ function User() {
                 alt={`${user.display_name}'s avatar`}
               />
             ) : (
-              <NoAvatar>
+              <NoAvatar isArtistContent={false}>
                 <UserIcon />
               </NoAvatar>
             )}

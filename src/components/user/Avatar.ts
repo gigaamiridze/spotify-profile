@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { IItemLayout } from '../../interfaces';
 
 export const Avatar = styled.img`
   width: 150px;
@@ -7,28 +8,29 @@ export const Avatar = styled.img`
   object-fit: cover;
 `;
 
-export const NoAvatar = styled.div`
-  border: 2px solid ${({ theme }) => theme.colors.white};
-  border-radius: 100%;
-  padding: 30px;
+export const NoAvatar = styled.div<IItemLayout>`
+  ${({ isArtistContent, theme }) => css`
+    border: 2px solid ${theme.colors.white};
+    padding: ${isArtistContent ? 40 : 30}px;
+  `}
+  border-radius: 50%;
 
   svg {
-    fill: ${({ theme }) => theme.colors.white};
-    width: 85px;
-    height: 85px;
+    ${({ isArtistContent, theme }) => css`
+      fill: ${theme.colors.white};
+      width: ${isArtistContent ? 120 : 85}px;
+    `}
     
     @media (max-width: 620px) {
-      width: 75px;
-      height: 75px;
+      width: ${({ isArtistContent }) => isArtistContent ? 110 : 75}px;
     }
 
     @media (max-width: 480px) {
-      width: 60px;
-      height: 60px;
+      width: ${({ isArtistContent }) => isArtistContent ? 95 : 60}px;
     }
   }
 
   @media (max-width: 320px) {
-    padding: 25px;
+    padding: ${({ isArtistContent }) => isArtistContent ? 35 : 25}px;
   }
 `;
