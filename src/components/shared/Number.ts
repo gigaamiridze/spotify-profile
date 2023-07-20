@@ -4,7 +4,8 @@ import { IItemLayout } from '../../interfaces';
 export const Number = styled.span<IItemLayout>`
   ${({ isArtistContent, theme }) => css`
     color: ${isArtistContent ? theme.colors.blue : theme.colors.green};
-    font-size: ${isArtistContent ? 'clamp(22px, 5.8vw, 24px)' : 'clamp(19px, 5.8vw, 20px)'};
+    font-size: ${isArtistContent ? 'clamp(19px, 2.8vw, 24px)' : 'clamp(19px, 5.8vw, 20px)'};
+    line-height: ${isArtistContent && '24px'};
     text-transform: ${isArtistContent && 'capitalize'};
   `}
   font-weight: 700;

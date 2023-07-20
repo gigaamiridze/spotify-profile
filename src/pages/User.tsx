@@ -7,7 +7,7 @@ import { PageRoutes } from '../constants';
 import { IUser, IFollowing, IPlaylists, IArtists, ITracks } from '../interfaces';
 import { Logout, Loader, ArtistItem, TrackItem } from '../layouts';
 import {
-  Main, Header, Avatar, NoAvatar, Username,
+  UserContainer, Header, Avatar, NoAvatar, Username,
   Stats, Stat, Number, NumLabel, SeeMoreButton,
   Preview, PreviewHeading, ItemsList
 } from '../components';
@@ -38,7 +38,7 @@ function User() {
   return (
     <>
       {user ? (
-        <Main>
+        <UserContainer>
           <Header>
             {user.images.length > 0 ? (
               <Avatar
@@ -116,7 +116,7 @@ function User() {
               </ItemsList>
             </div>
           </Preview>
-        </Main>
+        </UserContainer>
       ) : (
         <Loader />
       )}

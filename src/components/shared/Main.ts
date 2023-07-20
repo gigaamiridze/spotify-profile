@@ -2,12 +2,7 @@ import styled from 'styled-components';
 
 const Main = styled.main`
   width: 100%;
-  min-height: 100vh;
   padding: 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 
   @media (max-width: 1200px) {
     padding: 60px 50px;

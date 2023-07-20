@@ -7,6 +7,10 @@ const ContentWrapper = styled.div`
     padding-left: 0;
     padding-bottom: 70px;
   }
+
+  @media (max-width: 375px) {
+    padding-bottom: 60px;
+  }
 `;
 
 export default ContentWrapper;

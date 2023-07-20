@@ -27,6 +27,11 @@ const NavbarContainer = styled.div`
     bottom: 0;
     flex-direction: row;
   }
+
+  @media (max-width: 375px) {
+    min-height: 60px;
+    height: 60px;
+  }
 `;
 
 export default NavbarContainer;

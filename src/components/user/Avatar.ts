@@ -20,17 +20,33 @@ export const NoAvatar = styled.div<IItemLayout>`
       fill: ${theme.colors.white};
       width: ${isArtistContent ? 120 : 85}px;
     `}
+
+    @media (max-width: 768px) {
+      width: ${({ isArtistContent }) => isArtistContent && '110px'};
+    }
     
     @media (max-width: 620px) {
-      width: ${({ isArtistContent }) => isArtistContent ? 110 : 75}px;
+      width: ${({ isArtistContent }) => isArtistContent ? 100 : 75}px;
     }
 
     @media (max-width: 480px) {
       width: ${({ isArtistContent }) => isArtistContent ? 95 : 60}px;
     }
+
+    @media (max-width: 375px) {
+      width: ${({ isArtistContent }) => isArtistContent && '80px'};
+    }
+
+    @media (max-width: 320px) {
+      width: ${({ isArtistContent }) => isArtistContent && '75px'};
+    }
+  }
+
+  @media (max-width: 375px) {
+    padding: ${({ isArtistContent }) => isArtistContent && '35px'};
   }
 
   @media (max-width: 320px) {
-    padding: ${({ isArtistContent }) => isArtistContent ? 35 : 25}px;
+    padding: ${({ isArtistContent }) => isArtistContent ? 30 : 25}px;
   }
 `;

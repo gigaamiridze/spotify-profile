@@ -1,6 +1,6 @@
 import { SpotifyLogo } from '../assets';
 import { Client, Url } from '../constants';
-import { Container, Logo, LoginButton } from '../components';
+import { LoginContainer, LoginButton, Logo } from '../components';
 
 function Login() {
   const handleClick = () => {
@@ -9,12 +9,12 @@ function Login() {
   }
 
   return (
-    <Container>
+    <LoginContainer>
       <Logo src={SpotifyLogo} alt='spotify' />
       <LoginButton onClick={handleClick}>
         log in to spotify
       </LoginButton>
-    </Container>
+    </LoginContainer>
   )
 }
 

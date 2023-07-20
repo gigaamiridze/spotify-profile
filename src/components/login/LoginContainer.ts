@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Container = styled.div`
+const LoginContainer = styled.div`
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -19,4 +19,4 @@ const Container = styled.div`
   }
 `;
 
-export default Container;
+export default LoginContainer;
