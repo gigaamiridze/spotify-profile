@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useMenuItem } from '../contexts';
 import { IArtist } from '../interfaces';
 import { UserIcon } from '../assets';
-import { getArtist } from '../utils';
+import { getArtist, formatWithCommas } from '../utils';
 import { Loader } from '../layouts';
 import {
   ArtistContainer, ArtistImage, Username,
@@ -44,7 +44,9 @@ function Artist() {
           <Username isArtistContent={true}>{artist.name}</Username>
           <Stats isArtistContent={true}>
             <Stat>
-              <Number isArtistContent={true}>{artist.followers.total}</Number>
+              <Number isArtistContent={true}>
+                {formatWithCommas(artist.followers.total)}
+              </Number>
               <NumLabel>followers</NumLabel>
             </Stat>
             <>
