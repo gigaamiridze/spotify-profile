@@ -17,10 +17,13 @@ function Artist() {
 
   useEffect(() => {
     setActiveItem(null);
-    getArtistInfo(artistId);
+  }, []);
+
+  useEffect(() => {
+    getArtistData();
   }, [artistId]);
 
-  const getArtistInfo = async (artistId: string | undefined) => {
+  const getArtistData = async () => {
     if (artistId) {
       const { data } = await getArtist(artistId);
       setArtist(data);

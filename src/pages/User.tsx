@@ -22,10 +22,10 @@ function User() {
 
   useEffect(() => {
     setActiveItem(1);
-    getData();
+    getUserData();
   }, []);
 
-  const getData = async () => {
+  const getUserData = async () => {
     const { user, following, playlists, topArtists, topTracks } = await getUserInfo();
 
     setUser(user);

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { getTrackInfo } from '../utils';
 import { useMenuItem } from '../contexts';
 import { ITrack, IAudioAnalysis, IAudioFeatures } from '../interfaces';
 import { TrackContainer } from '../components';
@@ -15,9 +16,23 @@ function Track() {
     setActiveItem(null);
   }, []);
 
+  useEffect(() => {
+    getTrackData();
+  }, [trackId]);
+
+  const getTrackData = async () => {
+    if (trackId) {
+      const { track, audioAnalysis, audioFeatures } = await getTrackInfo(trackId);
+
+      setTrack(track);
+      setAudioAnalysis(audioAnalysis);
+      setAudioFeatures(audioFeatures);
+    }
+  }
+
   return (
     <TrackContainer>
-      Track ID: {trackId}
+      Track Name: {track?.name}
     </TrackContainer>
   )
 }
