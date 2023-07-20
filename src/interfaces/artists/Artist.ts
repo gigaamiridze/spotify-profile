@@ -1,7 +1,7 @@
-import { ISpotifyGeneral } from './General';
-import { IExternalUrls } from './External'
-import { IFollowers } from './Followers';
-import { IImage } from './Image';
+import { ISpotifyGeneral } from '../General';
+import { IExternalUrls } from '../External'
+import { IFollowers } from '../follow';
+import { IImage } from '../Image';
 
 export interface IArtist extends ISpotifyGeneral {
   external_urls: IExternalUrls;

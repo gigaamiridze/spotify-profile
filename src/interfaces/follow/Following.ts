@@ -1,4 +1,4 @@
-import { IArtist } from './Artist';
+import { IArtist } from '../artists';
 
 export interface IFollowing {
   artists: IFollowingArtists;

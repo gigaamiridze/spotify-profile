@@ -1,6 +1,6 @@
-import { ISpotifyGeneral } from './General';
-import { IExternalUrls } from './External';
-import { IImage } from './Image';
+import { ISpotifyGeneral } from '../General';
+import { IExternalUrls } from '../External';
+import { IImage } from '../Image';
 
 export interface IPlaylists {
   href: string;

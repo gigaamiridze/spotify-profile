@@ -1,15 +1,8 @@
-import { IExternalUrls, IExternalIds } from './External';
-import { ISpotifyGeneral } from './General';
-import { IImage } from './Image';
+import { IExternalUrls, IExternalIds } from '../External';
+import { ISpotifyGeneral } from '../General';
+import { IImage } from '../Image';
 
-export interface ITracks {
-  href: string;
-  items: ITrackItem[];
-  limit: number;
-  total: number;
-}
-
-export interface ITrackItem extends ISpotifyGeneral {
+export interface ITrack extends ISpotifyGeneral {
   album: IAlbum;
   artists: ITrackArtist[];
   available_markets: string[];
@@ -43,5 +36,5 @@ interface ITrackArtist extends ISpotifyGeneral {
 }
 
 export interface ITrackItemProps {
-  track: ITrackItem;
+  track: ITrack;
 }

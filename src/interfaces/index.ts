@@ -1,9 +1,10 @@
-export * from './Followers';
-export * from './Following';
-export * from './Playlists';
-export * from './Artists';
-export * from './Artist';
-export * from './Tracks';
+// Folders
+export * from './playlists';
+export * from './artists';
+export * from './tracks';
+export * from './follow';
+
+// Files
 export * from './Theme';
 export * from './Menu';
 export * from './User';
