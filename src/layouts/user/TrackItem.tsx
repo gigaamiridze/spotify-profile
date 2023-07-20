@@ -12,7 +12,7 @@ function TrackItem({ track }: ITrackItemProps) {
   const { id, name, album, artists, duration_ms } = track;
 
   return (
-    <Link to={`${PageRoutes.TRACKS}/${id}`}>
+    <Link to={`${PageRoutes.TRACK}/${id}`}>
       <Item isArtistContent={false}>
         <ItemArtwork>
           <ItemImage
