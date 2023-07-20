@@ -32,9 +32,21 @@ const getTopTracksMedium = () =>
 const getTopTracksLong = () =>
   axios.get('/top/tracks?limit=50&time_range=long_term', { ...requestConfig });
 
-// Get an artist
+// Get an Artist
 export const getArtist = (artistId: string) => 
   axios.get(`https://api.spotify.com/v1/artists/${artistId}`, { headers });
+
+// Get a Track  
+const getTrack = (trackId: string) =>
+  axios.get(`https://api.spotify.com/v1/tracks/${trackId}`, { headers });
+
+// Get Audio Analysis for a Track
+const getTrackAudioAnalysis = (trackId: string) =>
+  axios.get(`https://api.spotify.com/v1/audio-analysis/${trackId}`, { headers });
+
+// Get Audio Features for a Track
+const getTrackAudioFeatures = (trackId: string) =>
+  axios.get(`https://api.spotify.com/v1/audio-features/${trackId}`, { headers });
 
 export const getUserInfo = () => {
   return (
@@ -47,6 +59,20 @@ export const getUserInfo = () => {
           playlists: playlists.data,
           topArtists: topArtists.data,
           topTracks: topTracks.data,
+        })),
+      )
+  )
+}
+
+export const getTrackInfo = (trackId: string) => {
+  return (
+    axios
+      .all([getTrack(trackId), getTrackAudioAnalysis(trackId), getTrackAudioFeatures(trackId)])
+      .then(
+        axios.spread((track, audioAnalysis, audioFeatures) => ({
+          track: track.data,
+          audioAnalysis: audioAnalysis.data,
+          audioFeatures: audioFeatures.data,
         })),
       )
   )
