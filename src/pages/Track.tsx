@@ -6,7 +6,7 @@ import { ITrack, IAudioAnalysis, IAudioFeatures } from '../interfaces';
 import { Loader } from '../layouts';
 import { 
   TrackContainer, TopContainer, CoverImage, 
-  Info, TrackName, ArtistName, Album 
+  Info, TrackName, ArtistName, Album, GreenButton 
 } from '../components';
 
 function Track() {
@@ -62,6 +62,13 @@ function Track() {
                 &nbsp;&middot;&nbsp;
                 {getYear(track.album.release_date)}
               </Album>
+              <GreenButton
+                href={track.external_urls.spotify}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                play on spotify
+              </GreenButton>
             </Info>
           </TopContainer>
         </TrackContainer>
