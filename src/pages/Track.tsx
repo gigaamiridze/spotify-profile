@@ -4,7 +4,7 @@ import { getTrackInfo } from '../utils';
 import { useMenuItem } from '../contexts';
 import { ITrack, IAudioAnalysis, IAudioFeatures } from '../interfaces';
 import { Loader } from '../layouts';
-import { TrackContainer, TopContainer, CoverImage, Info, TrackName } from '../components';
+import { TrackContainer, TopContainer, CoverImage, Info, TrackName, ArtistName } from '../components';
 
 function Track() {
   const { trackId } = useParams();
@@ -39,6 +39,15 @@ function Track() {
             <CoverImage src={track.album.images[0].url} alt='track cover image' />
             <Info>
               <TrackName>{track.name}</TrackName>
+              <ArtistName>
+                {track.artists.map(({ name }, index) => (
+                  <span key={index}>
+                    {name}
+                    {track.artists.length > 0 && index === track.artists.length - 1 ? '' : ','}
+                    &nbsp;
+                  </span>
+                ))}
+              </ArtistName>
             </Info>
           </TopContainer>
         </TrackContainer>
