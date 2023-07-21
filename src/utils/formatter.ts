@@ -5,6 +5,9 @@ export const formatDuration = (millis: number) => {
   return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 }
 
+// Get year from YYYY-MM-DD
+export const getYear = (date: string) => date.split('-')[0];
+
 export const formatWithCommas = (n: number) => {
   return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }

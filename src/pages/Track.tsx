@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getTrackInfo } from '../utils';
 import { useMenuItem } from '../contexts';
+import { getTrackInfo, getYear } from '../utils';
 import { ITrack, IAudioAnalysis, IAudioFeatures } from '../interfaces';
 import { Loader } from '../layouts';
-import { TrackContainer, TopContainer, CoverImage, Info, TrackName, ArtistName } from '../components';
+import { 
+  TrackContainer, TopContainer, CoverImage, 
+  Info, TrackName, ArtistName, Album 
+} from '../components';
 
 function Track() {
   const { trackId } = useParams();
@@ -48,6 +51,17 @@ function Track() {
                   </span>
                 ))}
               </ArtistName>
+              <Album>
+                <a 
+                  href={track.album.external_urls.spotify}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  {track.album.name}
+                </a>
+                &nbsp;&middot;&nbsp;
+                {getYear(track.album.release_date)}
+              </Album>
             </Info>
           </TopContainer>
         </TrackContainer>

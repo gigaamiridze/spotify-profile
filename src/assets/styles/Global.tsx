@@ -44,6 +44,7 @@ const GlobalStyles = createGlobalStyle`
   a {
     display: inline-block;
     text-decoration: none;
+    color: inherit;
   }
 
   // Element styles
