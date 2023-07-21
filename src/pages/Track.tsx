@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { getTrackInfo } from '../utils';
 import { useMenuItem } from '../contexts';
 import { ITrack, IAudioAnalysis, IAudioFeatures } from '../interfaces';
+import { Loader } from '../layouts';
 import { TrackContainer } from '../components';
 
 function Track() {
@@ -31,9 +32,15 @@ function Track() {
   }
 
   return (
-    <TrackContainer>
-      Track Name: {track?.name}
-    </TrackContainer>
+    <>
+      {track ? (
+        <TrackContainer>
+          Track Name: {track?.name}
+        </TrackContainer>
+      ) : (
+        <Loader />
+      )}
+    </>
   )
 }
 
