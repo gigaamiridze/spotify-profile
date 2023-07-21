@@ -4,7 +4,7 @@ import { getTrackInfo } from '../utils';
 import { useMenuItem } from '../contexts';
 import { ITrack, IAudioAnalysis, IAudioFeatures } from '../interfaces';
 import { Loader } from '../layouts';
-import { TrackContainer } from '../components';
+import { TrackContainer, TopContainer, CoverImage } from '../components';
 
 function Track() {
   const { trackId } = useParams();
@@ -35,7 +35,9 @@ function Track() {
     <>
       {track ? (
         <TrackContainer>
-          Track Name: {track?.name}
+          <TopContainer>
+            <CoverImage src={track.album.images[0].url} alt='track cover image' />
+          </TopContainer>
         </TrackContainer>
       ) : (
         <Loader />
