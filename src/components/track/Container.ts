@@ -5,6 +5,7 @@ export const TrackContainer = styled(Main)`
   min-height: 100%;
   display: flex;
   flex-direction: column;
+  row-gap: 70px;
 `;
 
 

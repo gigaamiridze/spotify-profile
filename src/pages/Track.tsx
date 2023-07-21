@@ -6,7 +6,8 @@ import { ITrack, IAudioAnalysis, IAudioFeatures } from '../interfaces';
 import { Loader } from '../layouts';
 import { 
   TrackContainer, TopContainer, CoverImage, 
-  Info, TrackName, ArtistName, Album, GreenButton 
+  Info, TrackName, ArtistName, Album, GreenButton,
+  AudioFeatures, Features 
 } from '../components';
 
 function Track() {
@@ -71,6 +72,13 @@ function Track() {
               </GreenButton>
             </Info>
           </TopContainer>
+          {audioAnalysis && audioFeatures && (
+            <AudioFeatures>
+              <Features>
+                {/* Generate Each Feature Here */}
+              </Features>
+            </AudioFeatures>
+          )}
         </TrackContainer>
       ) : (
         <Loader />
