@@ -11,6 +11,5 @@ export const TrackContainer = styled(Main)`
 export const TopContainer = styled.div`
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
   column-gap: 40px;
 `;
