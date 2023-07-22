@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useMenuItem } from '../contexts';
-import { getTrackInfo, getYear } from '../utils';
 import { ITrack, IAudioAnalysis, IAudioFeatures } from '../interfaces';
+import { getTrackInfo, getYear, formatDuration, parsePitchClass } from '../utils';
 import { Loader } from '../layouts';
-import { 
-  TrackContainer, TopContainer, CoverImage, 
+import {
+  TrackContainer, TopContainer, CoverImage,
   Info, TrackName, ArtistName, Album, GreenButton,
-  AudioFeatures, Features 
+  AudioFeatures, Features, Feature, FeatureText, FeatureLabel 
 } from '../components';
 
 function Track() {
@@ -53,7 +53,7 @@ function Track() {
                 ))}
               </ArtistName>
               <Album>
-                <a 
+                <a
                   href={track.album.external_urls.spotify}
                   target='_blank'
                   rel='noopener noreferrer'
@@ -75,7 +75,46 @@ function Track() {
           {audioAnalysis && audioFeatures && (
             <AudioFeatures>
               <Features>
-                {/* Generate Each Feature Here */}
+                <Feature>
+                  <FeatureText>{formatDuration(audioFeatures.duration_ms)}</FeatureText>
+                  <FeatureLabel>Duration</FeatureLabel>
+                </Feature>
+                <Feature>
+                  <FeatureText>{parsePitchClass(audioFeatures.key)}</FeatureText>
+                  <FeatureLabel>Key</FeatureLabel>
+                </Feature>
+                <Feature>
+                  <FeatureText>{audioFeatures.mode === 1 ? 'Major' : 'Minor'}</FeatureText>
+                  <FeatureLabel>Modality</FeatureLabel>
+                </Feature>
+                <Feature>
+                  <FeatureText>{audioFeatures.time_signature}</FeatureText>
+                  <FeatureLabel>Time Signature</FeatureLabel>
+                </Feature>
+                <Feature>
+                  <FeatureText>{Math.round(audioFeatures.tempo)}</FeatureText>
+                  <FeatureLabel>Tempo (BPM)</FeatureLabel>
+                </Feature>
+                <Feature>
+                  <FeatureText>{track.popularity}%</FeatureText>
+                  <FeatureLabel>Popularity</FeatureLabel>
+                </Feature>
+                <Feature>
+                  <FeatureText>{audioAnalysis.bars.length}</FeatureText>
+                  <FeatureLabel>Bars</FeatureLabel>
+                </Feature>
+                <Feature>
+                  <FeatureText>{audioAnalysis.beats.length}</FeatureText>
+                  <FeatureLabel>Beats</FeatureLabel>
+                </Feature>
+                <Feature>
+                  <FeatureText>{audioAnalysis.sections.length}</FeatureText>
+                  <FeatureLabel>Sections</FeatureLabel>
+                </Feature>
+                <Feature>
+                  <FeatureText>{audioAnalysis.segments.length}</FeatureText>
+                  <FeatureLabel>Segments</FeatureLabel>
+                </Feature>
               </Features>
             </AudioFeatures>
           )}
