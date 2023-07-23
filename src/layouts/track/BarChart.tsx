@@ -4,7 +4,8 @@ import {
   CategoryScale,
   LinearScale,
   Tooltip,
-  Legend
+  Legend,
+  Title
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { ChartContainer } from '../../components';
@@ -14,7 +15,8 @@ ChartJS.register(
   CategoryScale,
   LinearScale,
   Tooltip,
-  Legend
+  Legend,
+  Title
 );
 
 function BarChart() {
@@ -62,6 +64,20 @@ function BarChart() {
   const options = {
     responsive: true,
     maintainAspectRatio: false,
+    plugins: {
+      title: {
+        display: true,
+        padding: {
+          bottom: 20,
+        },
+        text: 'Audio Features',
+        color: '#ffffff',
+        font: {
+          size: 18,
+          family: 'Circular Std',
+        },
+      },
+    },
     scales: {
       x: {
         beginAtZero: true,
