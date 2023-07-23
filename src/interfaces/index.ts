@@ -6,6 +6,7 @@ export * from './follow';
 
 // Files
 export * from './Theme';
+export * from './Chart';
 export * from './Menu';
 export * from './User';
 export * from './Item';

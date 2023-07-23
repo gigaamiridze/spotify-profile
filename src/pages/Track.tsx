@@ -7,7 +7,7 @@ import { Loader, BarChart } from '../layouts';
 import {
   TrackContainer, TopContainer, CoverImage,
   Info, TrackName, ArtistName, Album, GreenButton,
-  AudioFeatures, Features, Feature, FeatureText, FeatureLabel 
+  AudioFeatures, Features, Feature, FeatureText, FeatureLabel
 } from '../components';
 
 function Track() {
@@ -116,7 +116,7 @@ function Track() {
                   <FeatureLabel>Segments</FeatureLabel>
                 </Feature>
               </Features>
-              <BarChart />
+              <BarChart features={audioFeatures} />
             </AudioFeatures>
           )}
         </TrackContainer>
