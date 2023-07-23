@@ -8,7 +8,6 @@ export const TrackContainer = styled(Main)`
   row-gap: 70px;
 `;
 
-
 export const TopContainer = styled.div`
   display: flex;
   align-items: flex-start;

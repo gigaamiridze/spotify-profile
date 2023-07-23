@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useMenuItem } from '../contexts';
 import { ITrack, IAudioAnalysis, IAudioFeatures } from '../interfaces';
 import { getTrackInfo, getYear, formatDuration, parsePitchClass } from '../utils';
-import { Loader } from '../layouts';
+import { Loader, BarChart } from '../layouts';
 import {
   TrackContainer, TopContainer, CoverImage,
   Info, TrackName, ArtistName, Album, GreenButton,
@@ -116,6 +116,7 @@ function Track() {
                   <FeatureLabel>Segments</FeatureLabel>
                 </Feature>
               </Features>
+              <BarChart />
             </AudioFeatures>
           )}
         </TrackContainer>

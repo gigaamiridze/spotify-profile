@@ -6,3 +6,4 @@ export { default as Album } from './Album';
 export { default as Info } from './Info';
 export * from './Container';
 export * from './Features';
+export * from './Chart';
