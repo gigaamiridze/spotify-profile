@@ -1,5 +1,5 @@
 import { IHeaderProps } from '../../interfaces';
-import { HeaderContainer, HeaderTitle } from '../../components';
+import { HeaderContainer, HeaderTitle, Ranges, RangeButton } from '../../components';
 
 function Header(props: IHeaderProps) {
   const { title } = props;
@@ -7,6 +7,17 @@ function Header(props: IHeaderProps) {
   return (
     <HeaderContainer>
       <HeaderTitle>{title}</HeaderTitle>
+      <Ranges>
+        <RangeButton>
+          <span>All Time</span>
+        </RangeButton>
+        <RangeButton>
+          <span>Last 6 Months</span>
+        </RangeButton>
+        <RangeButton>
+          <span>Last 4 Weeks</span>
+        </RangeButton>
+      </Ranges>
     </HeaderContainer>
   )
 }
