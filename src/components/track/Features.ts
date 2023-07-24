@@ -6,6 +6,10 @@ export const AudioFeatures = styled.div`
   align-items: center;
   justify-content: center;
   row-gap: 70px;
+
+  @media (max-width: 480px) {
+    row-gap: 50px;
+  }
 `;
 
 export const Features = styled.div`
