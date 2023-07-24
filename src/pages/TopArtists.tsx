@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useMenuItem } from '../contexts';
-import { Main } from '../components';
+import { Header } from '../layouts';
+import { PageContainer } from '../components';
 
 function TopArtists() {
   const { setActiveItem } = useMenuItem();
@@ -10,9 +11,9 @@ function TopArtists() {
   }, []);
 
   return (
-    <Main>
-      Top Artists
-    </Main>
+    <PageContainer>
+      <Header title='Top Artists' />
+    </PageContainer>
   )
 }
 

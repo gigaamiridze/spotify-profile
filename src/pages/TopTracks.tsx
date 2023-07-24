@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useMenuItem } from '../contexts';
-import { Main } from '../components';
+import { Header } from '../layouts';
+import { PageContainer } from '../components';
 
 function TopTracks() {
   const { setActiveItem } = useMenuItem();
@@ -10,9 +11,9 @@ function TopTracks() {
   }, []);
 
   return (
-    <Main>
-      Top Tracks
-    </Main>
+    <PageContainer>
+      <Header title='Top Tracks' />
+    </PageContainer>
   )
 }
 
