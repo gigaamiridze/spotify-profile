@@ -21,6 +21,14 @@ export const Features = styled.div`
   display: grid;
   grid-template-columns: repeat(5, minmax(100px, 1fr));
   text-align: center;
+  
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
 `;
 
 export const Feature = styled.div`
@@ -36,6 +44,10 @@ export const FeatureText = styled.h4`
   font-size: 30px;
   font-weight: 700;
   margin-bottom: 5px;
+  
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
 `;
 
 export const FeatureLabel = styled.p`
