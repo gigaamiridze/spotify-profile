@@ -13,30 +13,30 @@ const getFollowing = () => axios.get('/following?type=artist', { ...requestConfi
 const getPlaylists = () => axios.get('/playlists', { ...requestConfig });
 
 // Get User's Top Artists
-const getTopArtistsShort = () =>
+export const getTopArtistsShort = () =>
   axios.get('/top/artists?limit=50&time_range=short_term', { ...requestConfig });
 
-const getTopArtistsMedium = () =>
+export const getTopArtistsMedium = () =>
   axios.get('/top/artists?limit=50&time_range=medium_term', { ...requestConfig });
 
-const getTopArtistsLong = () =>
+export const getTopArtistsLong = () =>
   axios.get('/top/artists?limit=50&time_range=long_term', { ...requestConfig });
 
 // Get User's Top Tracks
-const getTopTracksShort = () =>
+export const getTopTracksShort = () =>
   axios.get('/top/tracks?limit=50&time_range=short_term', { ...requestConfig });
 
-const getTopTracksMedium = () =>
+export const getTopTracksMedium = () =>
   axios.get('/top/tracks?limit=50&time_range=medium_term', { ...requestConfig });
 
-const getTopTracksLong = () =>
+export const getTopTracksLong = () =>
   axios.get('/top/tracks?limit=50&time_range=long_term', { ...requestConfig });
 
 // Get an Artist
-export const getArtist = (artistId: string) => 
+export const getArtist = (artistId: string) =>
   axios.get(`https://api.spotify.com/v1/artists/${artistId}`, { headers });
 
-// Get a Track  
+// Get a Track
 const getTrack = (trackId: string) =>
   axios.get(`https://api.spotify.com/v1/tracks/${trackId}`, { headers });
 
