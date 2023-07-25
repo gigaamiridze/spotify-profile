@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { IMenuItemProps } from '../../interfaces';
+import { IActive } from '../../interfaces';
 
 export const Menu = styled.ul`
   width: 100%;
@@ -14,7 +14,7 @@ export const Menu = styled.ul`
   }
 `;
 
-export const MenuItem = styled.li<IMenuItemProps>`
+export const MenuItem = styled.li<IActive>`
   @media (max-width: 768px) {
     flex-grow: 1;
     flex-basis: 100%;

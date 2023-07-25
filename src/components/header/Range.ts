@@ -1,4 +1,6 @@
 import styled, { css } from 'styled-components';
+import { IActive } from '../../interfaces';
+
 
 export const Ranges = styled.div`
   display: flex;
@@ -6,7 +8,7 @@ export const Ranges = styled.div`
   margin-right: -10px;
 `;
 
-export const RangeButton = styled.button`
+export const RangeButton = styled.button<IActive>`
   background-color: transparent;
   padding: 10px;
   border: none;
@@ -14,15 +16,20 @@ export const RangeButton = styled.button`
   cursor: pointer;
   
   span {
-    ${({ theme }) => css`
-      color: ${theme.colors.white};
+    ${({ isActive, theme }) => css`
+      color: ${isActive ? theme.colors.white : theme.colors.lightGrey};
       font-family: ${theme.fonts.primary};
-      border-bottom: 1px solid ${theme.colors.white};
+      border-bottom: 1px solid ${isActive ? theme.colors.white : 'transparent'};
+      transition: ${theme.transition};
     `}
     font-size: 16px;
     font-weight: 500;
     line-height: 1.5;
     white-space: nowrap;
     padding-bottom: 2px;
+    
+    &:hover {
+      color: ${({ theme }) => theme.colors.white};
+    }
   }
 `;
