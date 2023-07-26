@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const HeaderTitle = styled.h2`
   color: ${({ theme }) => theme.colors.white};
-  font-size: 24px;
+  font-size: clamp(22px, 5.8vw, 24px);
   font-weight: 900;
 `;
 
