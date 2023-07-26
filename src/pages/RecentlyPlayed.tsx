@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { useMenuItem } from '../contexts';
 import { getRecentlyPlayed } from '../utils';
 import { IRecentlyPlayed } from '../interfaces';
-import { PageContainer, HeaderTitle } from '../components';
+import { TrackItem, Loader } from '../layouts';
+import { PageContainer, HeaderTitle, ItemsList } from '../components';
 
 function RecentlyPlayed() {
   const { setActiveItem } = useMenuItem();
@@ -21,6 +22,15 @@ function RecentlyPlayed() {
   return (
     <PageContainer>
       <HeaderTitle>Recently Played Tracks</HeaderTitle>
+      {recentlyPlayed ? (
+        <ItemsList>
+          {recentlyPlayed.items.map(({ track }, index) => (
+            <TrackItem key={index} track={track} />
+          ))}
+        </ItemsList>
+      ) : (
+        <Loader />
+      )}
     </PageContainer>
   )
 }
