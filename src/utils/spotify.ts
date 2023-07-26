@@ -32,6 +32,10 @@ export const getTopTracksMedium = () =>
 export const getTopTracksLong = () =>
   axios.get('/top/tracks?limit=50&time_range=long_term', { ...requestConfig });
 
+// Get Current User's Recently Played Tracks
+export const getRecentlyPlayed = () =>
+  axios.get('/player/recently-played', { ...requestConfig });
+
 // Get an Artist
 export const getArtist = (artistId: string) =>
   axios.get(`https://api.spotify.com/v1/artists/${artistId}`, { headers });
