@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useMenuItem } from '../contexts';
-import { Main } from '../components';
+import { PageContainer, HeaderTitle } from '../components';
 
 function RecentlyPlayed() {
   const { setActiveItem } = useMenuItem();
@@ -10,9 +10,9 @@ function RecentlyPlayed() {
   }, []);
 
   return (
-    <Main>
-      Recently Played
-    </Main>
+    <PageContainer>
+      <HeaderTitle>Recently Played Tracks</HeaderTitle>
+    </PageContainer>
   )
 }
 
