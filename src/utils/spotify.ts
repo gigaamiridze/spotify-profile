@@ -10,7 +10,7 @@ const getUser = () => axios.get('/', { ...requestConfig });
 const getFollowing = () => axios.get('/following?type=artist', { ...requestConfig });
 
 // Get List of Current User's Playlists
-const getPlaylists = () => axios.get('/playlists', { ...requestConfig });
+export const getPlaylists = () => axios.get('/playlists', { ...requestConfig });
 
 // Get User's Top Artists
 export const getTopArtistsShort = () =>
