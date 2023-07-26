@@ -3,8 +3,8 @@ import { useMenuItem } from '../contexts';
 import { ITracks } from '../interfaces';
 import { Range } from '../constants';
 import { getTopTracksShort, getTopTracksMedium, getTopTracksLong } from '../utils';
-import { Header } from '../layouts';
-import { PageContainer } from '../components';
+import { Header, Loader, TrackItem } from '../layouts';
+import { PageContainer, ItemsList } from '../components';
 
 function TopTracks() {
   const { setActiveItem } = useMenuItem();
@@ -34,6 +34,15 @@ function TopTracks() {
   return (
     <PageContainer>
       <Header title='Top Tracks' changeInfoRange={changeTracksRange} />
+      {topTracks ? (
+        <ItemsList>
+          {topTracks.items.map((track, index) => (
+            <TrackItem key={index} track={track} />
+          ))}
+        </ItemsList>
+      ) : (
+        <Loader />
+      )}
     </PageContainer>
   )
 }

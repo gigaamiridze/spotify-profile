@@ -8,8 +8,8 @@ import {
   Title
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import { IChartProps } from '../../interfaces';
-import { ChartContainer } from '../../components';
+import { IChartProps } from '../interfaces';
+import { ChartContainer } from '../components';
 
 ChartJS.register(
   BarElement,

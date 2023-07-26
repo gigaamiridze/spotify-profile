@@ -1,18 +1,18 @@
 import { Link } from 'react-router-dom';
-import { InfoIcon } from '../../assets';
-import { PageRoutes } from '../../constants';
-import { formatDuration } from '../../utils';
-import { ITrackItemProps } from '../../interfaces';
+import { InfoIcon } from '../assets';
+import { PageRoutes } from '../constants';
+import { formatDuration } from '../utils';
+import { ITrackItemProps } from '../interfaces';
 import {
   Item, ItemArtwork, ItemImage, ItemName,
   Mask, ItemMeta, ItemGreyTitle
-} from '../../components';
+} from '../components';
 
 function TrackItem({ track }: ITrackItemProps) {
   const { id, name, album, artists, duration_ms } = track;
 
   return (
-    <Link to={`${PageRoutes.TRACK}/${id}`}>
+    <Link to={`${PageRoutes.HOST}/${PageRoutes.TRACK}/${id}`}>
       <Item isArtistContent={false}>
         <ItemArtwork isArtistContent={false}>
           <ItemImage
@@ -26,7 +26,7 @@ function TrackItem({ track }: ITrackItemProps) {
         </ItemArtwork>
         <ItemMeta>
           <div>
-            <ItemName>{name}</ItemName>
+            <ItemName isArtistContent={false}>{name}</ItemName>
             <ItemGreyTitle>
               {artists.map(({name}, index) => (
                 <span key={index}>

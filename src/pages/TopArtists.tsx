@@ -4,7 +4,7 @@ import { IArtists } from '../interfaces';
 import { Range } from '../constants';
 import { getTopArtistsShort, getTopArtistsMedium, getTopArtistsLong } from '../utils';
 import { Header, Loader, ArtistItem } from '../layouts';
-import { PageContainer, TopArtistsContainer } from '../components';
+import { PageContainer, TopArtistsList } from '../components';
 
 function TopArtists() {
   const { setActiveItem } = useMenuItem();
@@ -35,7 +35,7 @@ function TopArtists() {
     <PageContainer>
       <Header title='Top Artists' changeInfoRange={changeArtistsRange} />
       {topArtists ? (
-        <TopArtistsContainer>
+        <TopArtistsList>
           {topArtists.items.map((artist, index) => (
               <ArtistItem
                 key={index}
@@ -44,7 +44,7 @@ function TopArtists() {
                 isArtistContent={true}
               />
           ))}
-        </TopArtistsContainer>
+        </TopArtistsList>
       ) : (
         <Loader />
       )}

@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Range } from '../../constants';
-import { IHeaderProps } from '../../interfaces';
-import { HeaderContainer, HeaderTitle, RangeButton, Ranges } from '../../components';
+import { Range } from '../constants';
+import { IHeaderProps } from '../interfaces';
+import { HeaderContainer, HeaderTitle, RangeButton, Ranges } from '../components';
 
 function Header(props: IHeaderProps) {
   const { title, changeInfoRange } = props;

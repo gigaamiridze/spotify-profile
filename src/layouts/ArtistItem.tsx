@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { InfoIcon } from '../../assets';
-import { PageRoutes } from '../../constants';
-import { IArtistItemProps } from '../../interfaces';
-import { Item, ItemArtwork, ItemImage, ItemName, Mask } from '../../components';
+import { InfoIcon } from '../assets';
+import { PageRoutes } from '../constants';
+import { IArtistItemProps } from '../interfaces';
+import { Item, ItemArtwork, ItemImage, ItemName, Mask } from '../components';
 
 function ArtistItem({ artist, imageNum, isArtistContent }: IArtistItemProps) {
   const { id, name, images } = artist;
