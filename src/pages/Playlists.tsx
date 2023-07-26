@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useMenuItem } from '../contexts';
-import { Main } from '../components';
+import { PageContainer, HeaderTitle } from '../components';
 
 function Playlists() {
   const { setActiveItem } = useMenuItem();
@@ -10,9 +10,9 @@ function Playlists() {
   }, []);
 
   return (
-    <Main>
-      Playlists
-    </Main>
+    <PageContainer>
+      <HeaderTitle>Your Playlists</HeaderTitle>
+    </PageContainer>
   )
 }
 
