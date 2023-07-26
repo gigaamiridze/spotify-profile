@@ -34,6 +34,20 @@ export const ItemArtwork = styled.div<IItemLayout>`
     height: ${isArtistContent ? 200 : 50}px;
   `}
   position: relative;
+  
+  @media (max-width: 768px) {
+    ${({ isArtistContent }) => css`
+      width: ${isArtistContent && 150}px;
+      height: ${isArtistContent && 150}px;
+    `}
+  }
+
+  @media (max-width: 480px) {
+    ${({ isArtistContent }) => css`
+      width: ${isArtistContent && 120}px;
+      height: ${isArtistContent && 120}px;
+    `}
+  }
 `;
 
 export const ItemImage = styled.img<IItemLayout>`
@@ -59,10 +73,11 @@ export const ItemMeta = styled.div`
   }
 `;
 
-export const ItemName = styled.span`
-  ${({ theme }) => css`
+export const ItemName = styled.span<IItemLayout>`
+  ${({ isArtistContent, theme }) => css`
     color: ${theme.colors.white};
     transition: ${theme.transition};
+    margin-bottom: ${isArtistContent && 20}px;
   `}
   font-size: 16px;
   border-bottom: 1px solid transparent;

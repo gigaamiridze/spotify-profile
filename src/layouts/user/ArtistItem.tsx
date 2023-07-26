@@ -20,7 +20,7 @@ function ArtistItem({ artist, imageNum, isArtistContent }: IArtistItemProps) {
             <InfoIcon />
           </Mask>
         </ItemArtwork>
-        <ItemName>{name}</ItemName>
+        <ItemName isArtistContent={isArtistContent}>{name}</ItemName>
       </Item>
     </Link>
   )
