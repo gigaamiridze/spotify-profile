@@ -13,10 +13,13 @@ export const ItemsList = styled.div`
 `;
 
 export const Item = styled.li<IItemLayout>`
-  display: ${({ isArtistContent }) => isArtistContent ? 'flex' : 'grid'};
+  ${({ isArtistContent, isTopArtistsContent }) => css`
+    display: ${isArtistContent ? 'flex' : 'grid'};
+    flex-direction: ${isTopArtistsContent && 'column'};
+  `}
   grid-template-columns: auto 1fr;
   align-items: center;
-  column-gap: 20px;
+  gap: 20px;
 
   &:hover {
     ${Mask} {
@@ -25,15 +28,18 @@ export const Item = styled.li<IItemLayout>`
   }
 `;
 
-export const ItemArtwork = styled.div`
-  width: 50px;
-  height: 50px;
+export const ItemArtwork = styled.div<IItemLayout>`
+  ${({ isArtistContent }) => css`
+    width: ${isArtistContent ? 200 : 50}px;
+    height: ${isArtistContent ? 200 : 50}px;
+  `}
   position: relative;
 `;
 
 export const ItemImage = styled.img<IItemLayout>`
   width: 100%;
   height: 100%;
+  object-fit: cover;
   border-radius: ${({ isArtistContent }) => isArtistContent ? 100 : 0}%;
 `;
 

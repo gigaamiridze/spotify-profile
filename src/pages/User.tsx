@@ -50,7 +50,7 @@ function User() {
                 <UserIcon />
               </NoAvatar>
             )}
-            <a 
+            <a
               href={user.external_urls.spotify}
               target='_blank'
               rel='noopener noreferrer'
@@ -88,7 +88,12 @@ function User() {
                 {topArtists ? (
                   <>
                     {topArtists.items.slice(0, 10).map((artist, index) => (
-                      <ArtistItem key={index} artist={artist} />
+                      <ArtistItem
+                        key={index}
+                        artist={artist}
+                        imageNum={2}
+                        isArtistContent={false}
+                      />
                     ))}
                   </>
                 ) : (

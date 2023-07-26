@@ -14,20 +14,20 @@ const getPlaylists = () => axios.get('/playlists', { ...requestConfig });
 
 // Get User's Top Artists
 export const getTopArtistsShort = () =>
-  axios.get('/top/artists?limit=50&time_range=short_term', { ...requestConfig });
+  axios.get('/top/artists?limit=10&time_range=short_term', { ...requestConfig });
 
 export const getTopArtistsMedium = () =>
-  axios.get('/top/artists?limit=50&time_range=medium_term', { ...requestConfig });
+  axios.get('/top/artists?limit=25&time_range=medium_term', { ...requestConfig });
 
 export const getTopArtistsLong = () =>
   axios.get('/top/artists?limit=50&time_range=long_term', { ...requestConfig });
 
 // Get User's Top Tracks
 export const getTopTracksShort = () =>
-  axios.get('/top/tracks?limit=50&time_range=short_term', { ...requestConfig });
+  axios.get('/top/tracks?limit=10&time_range=short_term', { ...requestConfig });
 
 export const getTopTracksMedium = () =>
-  axios.get('/top/tracks?limit=50&time_range=medium_term', { ...requestConfig });
+  axios.get('/top/tracks?limit=25&time_range=medium_term', { ...requestConfig });
 
 export const getTopTracksLong = () =>
   axios.get('/top/tracks?limit=50&time_range=long_term', { ...requestConfig });

@@ -14,7 +14,7 @@ function TrackItem({ track }: ITrackItemProps) {
   return (
     <Link to={`${PageRoutes.TRACK}/${id}`}>
       <Item isArtistContent={false}>
-        <ItemArtwork>
+        <ItemArtwork isArtistContent={false}>
           <ItemImage
             isArtistContent={false}
             src={album.images[2].url}

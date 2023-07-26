@@ -3,8 +3,8 @@ import { useMenuItem } from '../contexts';
 import { IArtists } from '../interfaces';
 import { Range } from '../constants';
 import { getTopArtistsShort, getTopArtistsMedium, getTopArtistsLong } from '../utils';
-import { Header } from '../layouts';
-import { PageContainer } from '../components';
+import { Header, Loader, ArtistItem } from '../layouts';
+import { PageContainer, TopArtistsContainer } from '../components';
 
 function TopArtists() {
   const { setActiveItem } = useMenuItem();
@@ -28,13 +28,26 @@ function TopArtists() {
 
   const changeArtistsRange = async (range: Range.LONG | Range.MEDIUM | Range.SHORT) => {
     const { data } = await apiCalls[range];
-    console.log(data);
     setTopArtists(data);
   }
 
   return (
     <PageContainer>
       <Header title='Top Artists' changeInfoRange={changeArtistsRange} />
+      {topArtists ? (
+        <TopArtistsContainer>
+          {topArtists.items.map((artist, index) => (
+              <ArtistItem
+                key={index}
+                artist={artist}
+                imageNum={1}
+                isArtistContent={true}
+              />
+          ))}
+        </TopArtistsContainer>
+      ) : (
+        <Loader />
+      )}
     </PageContainer>
   )
 }

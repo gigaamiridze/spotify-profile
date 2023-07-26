@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Main } from '../shared';
 
-const ArtistContainer = styled(Main)`
+export const ArtistContainer = styled(Main)`
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -18,4 +18,8 @@ const ArtistContainer = styled(Main)`
   }
 `;
 
-export default ArtistContainer;
+export const TopArtistsContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+`;
