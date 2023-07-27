@@ -9,7 +9,8 @@ import { Loader } from '../layouts';
 import {
   PageContainer, HeaderTitle, ItemsContainer,
   PlaylistContainer, PlaylistCover, ItemImage,
-  Mask, PlaceholderArtwork, PlaceholderContent
+  Mask, PlaceholderArtwork, PlaceholderContent,
+  ItemName, TotalTracks
 } from '../components';
 
 function Playlists() {
@@ -30,7 +31,7 @@ function Playlists() {
     <PageContainer>
       <HeaderTitle>Your Playlists</HeaderTitle>
       {playlists ? (
-        <ItemsContainer>
+        <ItemsContainer isArtistContent={false}>
           {playlists.items.map((playlist) => {
             const { id, images, name, owner, tracks } = playlist;
 
@@ -54,6 +55,12 @@ function Playlists() {
                     <Mask isArtistContent={false} />
                   </PlaylistCover>
                 </Link>
+                <div id='flex-box'>
+                  <Link to={`${PageRoutes.HOST}/${PageRoutes.PLAYLIST}/${id}`}>
+                    <ItemName isArtistContent={false}>{name}</ItemName>
+                  </Link>
+                  <TotalTracks>{tracks.total} tracks</TotalTracks>
+                </div>
               </PlaylistContainer>
             )
           })}

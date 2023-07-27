@@ -2,10 +2,10 @@ import styled, { css } from 'styled-components';
 import { IItemLayout } from '../../interfaces';
 import Mask from './Mask';
 
-export const ItemsContainer = styled.div`
+export const ItemsContainer = styled.div<IItemLayout>`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 20px;
+  grid-gap: ${({ isArtistContent }) => isArtistContent ? 20 : 30}px;
 
   @media (max-width: 768px) {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -91,7 +91,7 @@ export const ItemName = styled.span<IItemLayout>`
   ${({ isArtistContent, theme }) => css`
     color: ${theme.colors.white};
     transition: ${theme.transition};
-    margin-bottom: ${isArtistContent && 20}px;
+    margin-bottom: ${isArtistContent && '20px'};
   `}
   font-size: 16px;
   border-bottom: 1px solid transparent;

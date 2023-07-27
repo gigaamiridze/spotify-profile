@@ -35,7 +35,7 @@ function TopArtists() {
     <PageContainer>
       <Header title='Top Artists' changeInfoRange={changeArtistsRange} />
       {topArtists ? (
-        <ItemsContainer>
+        <ItemsContainer isArtistContent={true}>
           {topArtists.items.map((artist, index) => (
               <ArtistItem
                 key={index}
