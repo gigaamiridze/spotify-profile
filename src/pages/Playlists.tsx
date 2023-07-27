@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { MusicIcon } from '../assets';
 import { getPlaylists } from '../utils';
 import { useMenuItem } from '../contexts';
 import { PageRoutes } from '../constants';
@@ -8,7 +9,7 @@ import { Loader } from '../layouts';
 import {
   PageContainer, HeaderTitle, ItemsContainer,
   PlaylistContainer, PlaylistCover, ItemImage,
-  Mask
+  Mask, PlaceholderArtwork, PlaceholderContent
 } from '../components';
 
 function Playlists() {
@@ -44,7 +45,11 @@ function Playlists() {
                         isArtistContent={false}
                       />
                     ) : (
-                      <div>No Image</div>
+                      <PlaceholderArtwork>
+                        <PlaceholderContent>
+                          <MusicIcon />
+                        </PlaceholderContent>
+                      </PlaceholderArtwork>
                     )}
                     <Mask isArtistContent={false} />
                   </PlaylistCover>
