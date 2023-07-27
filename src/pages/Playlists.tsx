@@ -2,7 +2,11 @@ import { useEffect, useState } from 'react';
 import { getPlaylists } from '../utils';
 import { useMenuItem } from '../contexts';
 import { IPlaylists } from '../interfaces';
-import { PageContainer, HeaderTitle } from '../components';
+import { Loader } from '../layouts';
+import {
+  PageContainer, HeaderTitle, ItemsContainer,
+  PlaylistContainer, PlaylistCover, ItemImage
+} from '../components';
 
 function Playlists() {
   const { setActiveItem } = useMenuItem();
@@ -21,6 +25,31 @@ function Playlists() {
   return (
     <PageContainer>
       <HeaderTitle>Your Playlists</HeaderTitle>
+      {playlists ? (
+        <ItemsContainer>
+          {playlists.items.map((playlist) => {
+            const { id, images, name, owner, tracks } = playlist;
+
+            return (
+              <PlaylistContainer key={id}>
+                <PlaylistCover>
+                  {images.length > 0 ? (
+                    <ItemImage
+                      src={images[0].url}
+                      alt={`${owner.display_name}'s Playlist Cover`}
+                      isArtistContent={false}
+                    />
+                  ) : (
+                    <div>No Image</div>
+                  )}
+                </PlaylistCover>
+              </PlaylistContainer>
+            )
+          })}
+        </ItemsContainer>
+      ) : (
+        <Loader />
+      )}
     </PageContainer>
   )
 }

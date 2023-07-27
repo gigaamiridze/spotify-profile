@@ -12,7 +12,7 @@ export interface IPlaylist extends ISpotifyGeneral {
   primary_color: string;
   public: boolean;
   snapshot_id: string;
-  track: IPlaylistTracks;
+  tracks: IPlaylistTracks;
 }
 
 interface IPlaylistOwner extends ISpotifyGeneral {
