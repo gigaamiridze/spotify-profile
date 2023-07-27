@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { getPlaylists } from '../utils';
 import { useMenuItem } from '../contexts';
+import { PageRoutes } from '../constants';
 import { IPlaylists } from '../interfaces';
 import { Loader } from '../layouts';
 import {
@@ -33,18 +35,20 @@ function Playlists() {
 
             return (
               <PlaylistContainer key={id}>
-                <PlaylistCover>
-                  {images.length > 0 ? (
-                    <ItemImage
-                      src={images[0].url}
-                      alt={`${owner.display_name}'s Playlist Cover`}
-                      isArtistContent={false}
-                    />
-                  ) : (
-                    <div>No Image</div>
-                  )}
-                  <Mask isArtistContent={false} />
-                </PlaylistCover>
+                <Link to={`${PageRoutes.HOST}/${PageRoutes.PLAYLIST}/${id}`}>
+                  <PlaylistCover>
+                    {images.length > 0 ? (
+                      <ItemImage
+                        src={images[0].url}
+                        alt={`${owner.display_name}'s Playlist Cover`}
+                        isArtistContent={false}
+                      />
+                    ) : (
+                      <div>No Image</div>
+                    )}
+                    <Mask isArtistContent={false} />
+                  </PlaylistCover>
+                </Link>
               </PlaylistContainer>
             )
           })}

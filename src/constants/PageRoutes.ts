@@ -6,5 +6,6 @@ export enum PageRoutes {
   TRACKS = 'tracks',
   TRACK = 'track',
   RECENT = 'recent',
+  PLAYLIST = 'playlist',
   PLAYLISTS = 'playlists',
 }
