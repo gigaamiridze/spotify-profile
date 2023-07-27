@@ -5,7 +5,8 @@ import { IPlaylists } from '../interfaces';
 import { Loader } from '../layouts';
 import {
   PageContainer, HeaderTitle, ItemsContainer,
-  PlaylistContainer, PlaylistCover, ItemImage
+  PlaylistContainer, PlaylistCover, ItemImage,
+  Mask
 } from '../components';
 
 function Playlists() {
@@ -42,6 +43,7 @@ function Playlists() {
                   ) : (
                     <div>No Image</div>
                   )}
+                  <Mask isArtistContent={false} />
                 </PlaylistCover>
               </PlaylistContainer>
             )
