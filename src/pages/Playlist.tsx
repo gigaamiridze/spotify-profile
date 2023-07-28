@@ -4,7 +4,10 @@ import { getPlaylist } from '../utils';
 import { IPlaylist } from '../interfaces';
 import { useMenuItem } from '../contexts';
 import { Loader, PlaylistPlaceholder, TrackItem } from '../layouts';
-import { PlaylistContainer, ItemImage, LeftContent, RightContent, ItemsList } from '../components';
+import {
+  PlaylistContainer, ItemImage, LeftContent,
+  RightContent, ItemsList, PlaylistName
+} from '../components';
 
 function Playlist() {
   const { setActiveItem } = useMenuItem();
@@ -40,6 +43,9 @@ function Playlist() {
             ) : (
               <PlaylistPlaceholder />
             )}
+            <a href={playlist.external_urls.spotify} target='_blank' rel='noopener noreferrer'>
+              <PlaylistName>{playlist.name}</PlaylistName>
+            </a>
           </LeftContent>
           <RightContent>
             {playlist.tracks && (

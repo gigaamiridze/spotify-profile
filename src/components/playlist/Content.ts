@@ -8,6 +8,7 @@ export const LeftContent = styled.div`
   flex-direction: column;
   align-items: center;
   row-gap: 20px;
+  text-align: center;
   
   img {
     height: auto;
