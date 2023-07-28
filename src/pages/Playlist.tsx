@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getPlaylist } from '../utils';
+import { PageRoutes } from '../constants';
 import { IPlaylist } from '../interfaces';
 import { useMenuItem } from '../contexts';
 import { Loader, PlaylistPlaceholder, TrackItem } from '../layouts';
@@ -49,10 +50,10 @@ function Playlist() {
             </a>
             <ItemGreyTitle>By {playlist.owner.display_name}</ItemGreyTitle>
             {playlist.description && (
-              <ItemGreyTitle>{playlist.description}</ItemGreyTitle>
+              <ItemGreyTitle id='description'>{playlist.description}</ItemGreyTitle>
             )}
             <TotalTracks isPlaylistContent={true}>{playlist.tracks.total} tracks</TotalTracks>
-            <Link to={''}>
+            <Link to={`${PageRoutes.HOST}/${PageRoutes.RECOMMENDATIONS}/${playlist.id}`}>
               <GreenButton>get recommendations</GreenButton>
             </Link>
           </LeftContent>

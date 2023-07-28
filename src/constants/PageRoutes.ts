@@ -8,4 +8,5 @@ export enum PageRoutes {
   RECENT = 'recent',
   PLAYLIST = 'playlist',
   PLAYLISTS = 'playlists',
+  RECOMMENDATIONS = 'recommendations',
 }

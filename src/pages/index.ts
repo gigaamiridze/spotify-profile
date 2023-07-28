@@ -1,3 +1,4 @@
+export { default as Recommendations } from './Recommendations';
 export { default as RecentlyPlayed } from './RecentlyPlayed';
 export { default as TopArtists } from './TopArtists';
 export { default as TopTracks } from './TopTracks';

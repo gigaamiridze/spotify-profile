@@ -14,6 +14,10 @@ export const LeftContent = styled.div`
     height: auto;
     margin-bottom: 8px;
   }
+  
+  #description {
+    line-height: 1.4;
+  }
 `;
 
 export const RightContent = styled.div`
