@@ -1,10 +1,13 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { TotalTracksProps } from '../../interfaces';
 
-const TotalTracks = styled.span`
-  color: ${({ theme }) => theme.colors.lightGrey};
-  font-size: 12px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+const TotalTracks = styled.span<TotalTracksProps>`
+  ${({ isPlaylistContent, theme }) => css`
+    color: ${isPlaylistContent ? theme.colors.white : theme.colors.lightGrey};
+    font-size: ${isPlaylistContent ? 14 : 12}px;
+    text-transform: ${isPlaylistContent ? 'capitalize' : 'uppercase'};
+    letter-spacing: ${!isPlaylistContent && '1px'};
+  `}
 `;
 
 export default TotalTracks;

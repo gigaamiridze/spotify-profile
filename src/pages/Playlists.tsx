@@ -53,7 +53,7 @@ function Playlists() {
                   <Link to={`${PageRoutes.HOST}/${PageRoutes.PLAYLIST}/${id}`}>
                     <ItemName isArtistContent={false}>{name}</ItemName>
                   </Link>
-                  <TotalTracks>{tracks.total} tracks</TotalTracks>
+                  <TotalTracks isPlaylistContent={false}>{tracks.total} tracks</TotalTracks>
                 </div>
               </PlaylistItem>
             )

@@ -6,3 +6,7 @@ export interface IPlaylists {
   limit: number;
   total: number;
 }
+
+export interface TotalTracksProps {
+  isPlaylistContent: boolean;
+}

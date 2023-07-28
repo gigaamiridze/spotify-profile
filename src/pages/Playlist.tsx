@@ -6,7 +6,8 @@ import { useMenuItem } from '../contexts';
 import { Loader, PlaylistPlaceholder, TrackItem } from '../layouts';
 import {
   PlaylistContainer, ItemImage, LeftContent,
-  RightContent, ItemsList, PlaylistName, ItemGreyTitle
+  RightContent, ItemsList, PlaylistName,
+  ItemGreyTitle, TotalTracks
 } from '../components';
 
 function Playlist() {
@@ -50,6 +51,7 @@ function Playlist() {
             {playlist.description && (
               <ItemGreyTitle>{playlist.description}</ItemGreyTitle>
             )}
+            <TotalTracks isPlaylistContent={true}>{playlist.tracks.total} tracks</TotalTracks>
           </LeftContent>
           <RightContent>
             {playlist.tracks && (
