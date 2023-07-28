@@ -1,3 +1,4 @@
+export { default as PlaylistPlaceholder } from './PlaylistPlaceholder';
 export { default as ArtistItem } from './ArtistItem.tsx';
 export { default as TrackItem } from './TrackItem.tsx';
 export { default as BarChart } from './BarChart.tsx';

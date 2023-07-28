@@ -1,16 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { MusicIcon } from '../assets';
 import { getPlaylists } from '../utils';
 import { useMenuItem } from '../contexts';
 import { PageRoutes } from '../constants';
 import { IPlaylists } from '../interfaces';
-import { Loader } from '../layouts';
+import { Loader, PlaylistPlaceholder } from '../layouts';
 import {
   PageContainer, HeaderTitle, ItemsContainer,
   PlaylistItem, PlaylistCover, ItemImage,
-  Mask, PlaceholderArtwork, PlaceholderContent,
-  ItemName, TotalTracks
+  Mask, ItemName, TotalTracks
 } from '../components';
 
 function Playlists() {
@@ -46,11 +44,7 @@ function Playlists() {
                         isArtistContent={false}
                       />
                     ) : (
-                      <PlaceholderArtwork>
-                        <PlaceholderContent>
-                          <MusicIcon />
-                        </PlaceholderContent>
-                      </PlaceholderArtwork>
+                      <PlaylistPlaceholder />
                     )}
                     <Mask isArtistContent={false} />
                   </PlaylistCover>

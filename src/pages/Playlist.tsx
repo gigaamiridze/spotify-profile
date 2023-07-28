@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom';
 import { getPlaylist } from '../utils';
 import { IPlaylist } from '../interfaces';
 import { useMenuItem } from '../contexts';
-import { PlaylistContainer } from '../components';
+import { Loader, PlaylistPlaceholder } from '../layouts';
+import { PlaylistContainer, ItemImage, LeftContent } from '../components';
 
 function Playlist() {
   const { setActiveItem } = useMenuItem();
@@ -26,9 +27,25 @@ function Playlist() {
   }
 
   return (
-    <PlaylistContainer>
-      Playlist Name: {playlist?.name}
-    </PlaylistContainer>
+    <>
+      {playlist ? (
+        <PlaylistContainer>
+          <LeftContent>
+            {playlist.images.length > 0 ? (
+              <ItemImage
+                src={playlist.images[0].url}
+                alt={`${playlist.owner.display_name}'s Playlist Cover`}
+                isArtistContent={false}
+              />
+            ) : (
+              <PlaylistPlaceholder />
+            )}
+          </LeftContent>
+        </PlaylistContainer>
+      ) : (
+        <Loader />
+      )}
+    </>
   )
 }
 
