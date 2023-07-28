@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { getPlaylist } from '../utils';
 import { IPlaylist } from '../interfaces';
 import { useMenuItem } from '../contexts';
@@ -7,7 +7,7 @@ import { Loader, PlaylistPlaceholder, TrackItem } from '../layouts';
 import {
   PlaylistContainer, ItemImage, LeftContent,
   RightContent, ItemsList, PlaylistName,
-  ItemGreyTitle, TotalTracks
+  ItemGreyTitle, TotalTracks, GreenButton
 } from '../components';
 
 function Playlist() {
@@ -52,6 +52,9 @@ function Playlist() {
               <ItemGreyTitle>{playlist.description}</ItemGreyTitle>
             )}
             <TotalTracks isPlaylistContent={true}>{playlist.tracks.total} tracks</TotalTracks>
+            <Link to={''}>
+              <GreenButton>get recommendations</GreenButton>
+            </Link>
           </LeftContent>
           <RightContent>
             {playlist.tracks && (

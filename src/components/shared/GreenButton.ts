@@ -1,9 +1,10 @@
 import styled, { css } from 'styled-components';
 
-const GreenButton = styled.a`
+const GreenButton = styled.button`
   ${({ theme }) => css`
     background-color: ${theme.colors.green};
     color: ${theme.colors.white};
+    font-family: ${theme.fonts.primary};
     transition: ${theme.transition};
   `}
   font-size: 12px;
@@ -12,6 +13,9 @@ const GreenButton = styled.a`
   text-transform: uppercase;
   padding: 11px 24px;
   border-radius: 50px;
+  border: none;
+  outline: none;
+  cursor: pointer;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.lightGreen};

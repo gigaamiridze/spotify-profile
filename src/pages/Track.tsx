@@ -63,13 +63,13 @@ function Track() {
                 &nbsp;&middot;&nbsp;
                 {getYear(track.album.release_date)}
               </Album>
-              <GreenButton
+              <a
                 href={track.external_urls.spotify}
                 target='_blank'
                 rel='noopener noreferrer'
               >
-                play on spotify
-              </GreenButton>
+                <GreenButton>play on spotify</GreenButton>
+              </a>
             </Info>
           </TopContainer>
           {audioAnalysis && audioFeatures && (
