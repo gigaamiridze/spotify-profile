@@ -8,4 +8,12 @@ export const LeftContent = styled.div`
   flex-direction: column;
   align-items: center;
   row-gap: 20px;
+  
+  img {
+    height: auto;
+  }
+`;
+
+export const RightContent = styled.div`
+  flex-grow: 1;
 `;

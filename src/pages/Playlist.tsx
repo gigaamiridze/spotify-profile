@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 import { getPlaylist } from '../utils';
 import { IPlaylist } from '../interfaces';
 import { useMenuItem } from '../contexts';
-import { Loader, PlaylistPlaceholder } from '../layouts';
-import { PlaylistContainer, ItemImage, LeftContent } from '../components';
+import { Loader, PlaylistPlaceholder, TrackItem } from '../layouts';
+import { PlaylistContainer, ItemImage, LeftContent, RightContent, ItemsList } from '../components';
 
 function Playlist() {
   const { setActiveItem } = useMenuItem();
@@ -41,6 +41,15 @@ function Playlist() {
               <PlaylistPlaceholder />
             )}
           </LeftContent>
+          <RightContent>
+            {playlist.tracks && (
+              <ItemsList>
+                {playlist.tracks.items.map(({ track }, index) => (
+                  <TrackItem key={index} track={track} />
+                ))}
+              </ItemsList>
+            )}
+          </RightContent>
         </PlaylistContainer>
       ) : (
         <Loader />
