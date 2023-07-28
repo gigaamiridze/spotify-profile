@@ -9,6 +9,7 @@ export const ItemsContainer = styled.div<IItemLayout>`
 
   @media (max-width: 768px) {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: ${({ isArtistContent }) => !isArtistContent && '20px'};
   }
 
   @media (max-width: 480px) {
