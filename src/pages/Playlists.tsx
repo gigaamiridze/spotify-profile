@@ -8,7 +8,7 @@ import { IPlaylists } from '../interfaces';
 import { Loader } from '../layouts';
 import {
   PageContainer, HeaderTitle, ItemsContainer,
-  PlaylistContainer, PlaylistCover, ItemImage,
+  PlaylistItem, PlaylistCover, ItemImage,
   Mask, PlaceholderArtwork, PlaceholderContent,
   ItemName, TotalTracks
 } from '../components';
@@ -36,7 +36,7 @@ function Playlists() {
             const { id, images, name, owner, tracks } = playlist;
 
             return (
-              <PlaylistContainer key={id}>
+              <PlaylistItem key={id}>
                 <Link to={`${PageRoutes.HOST}/${PageRoutes.PLAYLIST}/${id}`}>
                   <PlaylistCover>
                     {images.length > 0 ? (
@@ -61,7 +61,7 @@ function Playlists() {
                   </Link>
                   <TotalTracks>{tracks.total} tracks</TotalTracks>
                 </div>
-              </PlaylistContainer>
+              </PlaylistItem>
             )
           })}
         </ItemsContainer>

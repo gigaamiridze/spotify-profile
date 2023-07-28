@@ -44,6 +44,10 @@ export const getArtist = (artistId: string) =>
 const getTrack = (trackId: string) =>
   axios.get(`https://api.spotify.com/v1/tracks/${trackId}`, { headers });
 
+// Get a Playlist
+export const getPlaylist = (playlistId: string) =>
+  axios.get(`https://api.spotify.com/v1/playlists/${playlistId}`, { headers });
+
 // Get Audio Analysis for a Track
 const getTrackAudioAnalysis = (trackId: string) =>
   axios.get(`https://api.spotify.com/v1/audio-analysis/${trackId}`, { headers });
