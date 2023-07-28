@@ -6,7 +6,7 @@ import { useMenuItem } from '../contexts';
 import { Loader, PlaylistPlaceholder, TrackItem } from '../layouts';
 import {
   PlaylistContainer, ItemImage, LeftContent,
-  RightContent, ItemsList, PlaylistName
+  RightContent, ItemsList, PlaylistName, ItemGreyTitle
 } from '../components';
 
 function Playlist() {
@@ -46,6 +46,10 @@ function Playlist() {
             <a href={playlist.external_urls.spotify} target='_blank' rel='noopener noreferrer'>
               <PlaylistName>{playlist.name}</PlaylistName>
             </a>
+            <ItemGreyTitle>By {playlist.owner.display_name}</ItemGreyTitle>
+            {playlist.description && (
+              <ItemGreyTitle>{playlist.description}</ItemGreyTitle>
+            )}
           </LeftContent>
           <RightContent>
             {playlist.tracks && (

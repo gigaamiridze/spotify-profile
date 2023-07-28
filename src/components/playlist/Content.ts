@@ -7,11 +7,12 @@ export const LeftContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 20px;
+  row-gap: 12px;
   text-align: center;
   
   img {
     height: auto;
+    margin-bottom: 8px;
   }
 `;
 
