@@ -6,6 +6,10 @@ const PlaylistName = styled.h3`
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.5px;
+  
+  @media (max-width: 375px) {
+    font-size: 24px;
+  }
 `;
 
 export default PlaylistName;

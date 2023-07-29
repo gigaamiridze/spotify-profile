@@ -3,7 +3,11 @@ import { Main } from '../shared';
 
 const PlaylistContainer = styled(Main)`
   display: flex;
-  column-gap: 50px;
+  gap: 50px;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export default PlaylistContainer;

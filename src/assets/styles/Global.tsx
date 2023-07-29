@@ -53,6 +53,22 @@ const GlobalStyles = createGlobalStyle`
       background-color: ${theme.colors.black};
       font-family: ${theme.fonts.primary};
     `}
+
+    &::-webkit-scrollbar {
+      width: 12px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background-color: ${({ theme }) => theme.colors.black};
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      ${({ theme }) => css`
+        background-color: ${theme.colors.lightGreen};
+        border: 3px solid ${theme.colors.black};
+      `}
+      border-radius: 10px;
+    }
   }
 
   // Fonts

@@ -13,10 +13,19 @@ export const LeftContent = styled.div`
   img {
     height: auto;
     margin-bottom: 8px;
+    
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
   
   #description {
     line-height: 1.4;
+  }
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: none;
   }
 `;
 

@@ -20,6 +20,10 @@ const GreenButton = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.colors.lightGreen};
   }
+  
+  @media (max-width: 375px) {
+    font-size: 11px;
+  }
 `;
 
 export default GreenButton;

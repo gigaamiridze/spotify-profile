@@ -32,4 +32,28 @@ export const HorizontalChartContainer = styled.div`
   width: 100%;
   height: 300px;
   margin-top: 40px;
+  
+  @media (max-width: 1024px) {
+    height: 250px;
+  }
+  
+  @media (max-width: 768px) {
+    height: 450px;
+  }
+
+  @media (max-width: 576px) {
+    height: 400px;
+  }
+
+  @media (max-width: 420px) {
+    height: 350px;
+  }
+
+  @media (max-width: 375px) {
+    height: 310px;
+  }
+  
+  @media (max-width: 320px) {
+    height: 270px;
+  }
 `;
