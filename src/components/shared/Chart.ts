@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ChartContainer = styled.div`
+export const VerticalChartContainer = styled.div`
   max-width: 700px;
   width: 100%;
   height: 650px;
@@ -26,4 +26,10 @@ export const ChartContainer = styled.div`
     height: 100% !important;
     margin: 0 auto;
   }
+`;
+
+export const HorizontalChartContainer = styled.div`
+  width: 100%;
+  height: 300px;
+  margin-top: 40px;
 `;

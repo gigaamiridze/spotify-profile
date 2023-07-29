@@ -8,8 +8,9 @@ import {
   Title
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import { Direction } from '../constants';
 import { IChartProps } from '../interfaces';
-import { ChartContainer } from '../components';
+import { HorizontalChartContainer, VerticalChartContainer } from '../components';
 
 ChartJS.register(
   BarElement,
@@ -20,9 +21,7 @@ ChartJS.register(
   Title
 );
 
-
-
-function BarChart({ features }: IChartProps) {
+function FeatureChart({ features, direction }: IChartProps) {
   const { acousticness, danceability, energy, instrumentalness, liveness, speechiness, valence } = features;
 
   const labels = [
@@ -74,7 +73,8 @@ function BarChart({ features }: IChartProps) {
     ],
   };
 
-  const options = {
+  const chartOptions = {
+    indexAxis: direction === Direction.HORIZONTAL ? 'y' : 'x',
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
@@ -128,14 +128,26 @@ function BarChart({ features }: IChartProps) {
   };
 
   return (
-    <ChartContainer>
-      <Bar
-        id='chart'
-        data={chartData}
-        options={options}
-      />
-    </ChartContainer>
+    <>
+      {direction === Direction.HORIZONTAL ? (
+        <HorizontalChartContainer>
+          <Bar
+            id='chart'
+            data={chartData}
+            options={chartOptions}
+          />
+        </HorizontalChartContainer>
+      ) : (
+        <VerticalChartContainer>
+          <Bar
+            id='chart'
+            data={chartData}
+            options={chartOptions}
+          />
+        </VerticalChartContainer>
+      )}
+    </>
   )
 }
 
-export default BarChart;
+export default FeatureChart;

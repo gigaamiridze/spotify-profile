@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getPlaylist, getAudioFeaturesForTracks } from '../utils';
-import { PageRoutes } from '../constants';
-import {IAudioFeaturesForTrack, IPlaylist} from '../interfaces';
+import { PageRoutes, Direction } from '../constants';
+import { IAudioFeaturesForTrack, IPlaylist } from '../interfaces';
 import { useMenuItem } from '../contexts';
-import { Loader, PlaylistPlaceholder, TrackItem } from '../layouts';
+import { Loader, PlaylistPlaceholder, TrackItem, FeatureChart } from '../layouts';
 import {
   PlaylistContainer, ItemImage, LeftContent,
   RightContent, ItemsList, PlaylistName,
@@ -68,6 +68,9 @@ function Playlist() {
             <Link to={`${PageRoutes.HOST}/${PageRoutes.RECOMMENDATIONS}/${playlist.id}`}>
               <GreenButton>get recommendations</GreenButton>
             </Link>
+            {audioFeatures && (
+              <FeatureChart features={audioFeatures.audio_features[0]} direction={Direction.HORIZONTAL} />
+            )}
           </LeftContent>
           <RightContent>
             {playlist.tracks && (
