@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Loader } from '../layouts';
 import { PageRoutes } from '../constants';
-import { pageAnimation } from '../animations';
+import { Loader, TrackItem } from '../layouts';
 import { IPlaylist, IRecommendations } from '../interfaces';
+import { pageAnimation, contentAnimation } from '../animations';
 import { getPlaylist, getRecommendationsForTracks } from '../utils';
-import { PageContainer, HeaderTitle } from '../components';
+import { PageContainer, HeaderTitle, ItemsList } from '../components';
 
 function Recommendations() {
   const { playlistId } = useParams();
@@ -49,6 +49,17 @@ function Recommendations() {
               {playlist.name}
             </Link>
           </HeaderTitle>
+          {recommendations && (
+            <ItemsList
+              variants={contentAnimation}
+              initial='initial'
+              animate='animate'
+            >
+              {recommendations.tracks.map((track, index) => (
+                <TrackItem key={index} track={track} />
+              ))}
+            </ItemsList>
+          )}
         </PageContainer>
       ) : (
         <Loader />
