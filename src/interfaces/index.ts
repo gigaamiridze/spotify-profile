@@ -5,6 +5,7 @@ export * from './tracks';
 export * from './follow';
 
 // Files
+export * from './Recommendations';
 export * from './Header';
 export * from './Active';
 export * from './Theme';
