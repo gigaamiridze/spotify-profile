@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { getPlaylist } from '../utils';
+import { getPlaylist, getAudioFeaturesForTracks } from '../utils';
 import { PageRoutes } from '../constants';
-import { IPlaylist } from '../interfaces';
+import {IAudioFeaturesForTrack, IPlaylist} from '../interfaces';
 import { useMenuItem } from '../contexts';
 import { Loader, PlaylistPlaceholder, TrackItem } from '../layouts';
 import {
@@ -15,6 +15,7 @@ function Playlist() {
   const { setActiveItem } = useMenuItem();
   const { playlistId } = useParams();
   const [playlist, setPlaylist] = useState<IPlaylist | null>(null);
+  const [audioFeatures, setAudioFeatures] = useState<IAudioFeaturesForTrack | null>(null);
 
   useEffect(() => {
     setActiveItem(null);
@@ -24,10 +25,21 @@ function Playlist() {
     getPlaylistInfo();
   }, [playlistId]);
 
+  useEffect(() => {
+    getAudioFeaturesInfo();
+  }, [playlist]);
+
   const getPlaylistInfo = async () => {
     if (playlistId) {
       const { data } = await getPlaylist(playlistId);
       setPlaylist(data);
+    }
+  }
+
+  const getAudioFeaturesInfo = async () => {
+    if (playlist) {
+      const { data } = await getAudioFeaturesForTracks(playlist.tracks.items);
+      setAudioFeatures(data);
     }
   }
 

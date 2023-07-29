@@ -17,3 +17,7 @@ export interface IAudioFeatures extends ISpotifyGeneral {
   track_href: string;
   valence: string;
 }
+
+export interface IAudioFeaturesForTrack {
+  audio_features: IAudioFeatures[];
+}

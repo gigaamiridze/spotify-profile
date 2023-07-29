@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { requestConfig } from '../config';
+import { IPlaylistTrackItem } from '../interfaces';
 
 const { headers } = requestConfig;
 
@@ -35,6 +36,15 @@ export const getTopTracksLong = () =>
 // Get Current User's Recently Played Tracks
 export const getRecentlyPlayed = () =>
   axios.get('/player/recently-played', { ...requestConfig });
+
+// Return a comma separated string of track IDs from the given array of tracks
+const getTrackIds = (tracks: IPlaylistTrackItem[]) => tracks.map(({ track }) => track.id).join(',');
+
+// Get Audio Features for Several Tracks
+export const getAudioFeaturesForTracks = (tracks: IPlaylistTrackItem[]) => {
+  const ids = getTrackIds(tracks);
+  return axios.get(`https://api.spotify.com/v1/audio-features?ids=${ids}`, { headers });
+};
 
 // Get an Artist
 export const getArtist = (artistId: string) =>

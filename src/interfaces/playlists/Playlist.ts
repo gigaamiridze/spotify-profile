@@ -28,7 +28,7 @@ interface IPlaylistTracks {
   total: number;
 }
 
-interface IPlaylistTrackItem {
+export interface IPlaylistTrackItem {
   added_at: string;
   added_by: IAddedBy;
   is_local: boolean;
