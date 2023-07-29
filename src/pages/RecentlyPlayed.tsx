@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useMenuItem } from '../contexts';
 import { getRecentlyPlayed } from '../utils';
-import { pageAnimation } from '../animations';
+import { pageAnimation, contentAnimation } from '../animations';
 import { IRecentlyPlayed } from '../interfaces';
 import { TrackItem, Loader } from '../layouts';
 import { PageContainer, HeaderTitle, ItemsList } from '../components';
@@ -29,7 +29,11 @@ function RecentlyPlayed() {
     >
       <HeaderTitle>Recently Played Tracks</HeaderTitle>
       {recentlyPlayed ? (
-        <ItemsList>
+        <ItemsList
+          variants={contentAnimation}
+          initial='initial'
+          animate='animate'
+        >
           {recentlyPlayed.items.map(({ track }, index) => (
             <TrackItem key={index} track={track} />
           ))}

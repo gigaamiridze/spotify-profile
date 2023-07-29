@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useMenuItem } from '../contexts';
 import { IArtists } from '../interfaces';
 import { Range } from '../constants';
-import { pageAnimation } from '../animations';
+import { pageAnimation, contentAnimation } from '../animations';
 import { getTopArtistsShort, getTopArtistsMedium, getTopArtistsLong } from '../utils';
 import { Header, Loader, ArtistItem } from '../layouts';
 import { PageContainer, ItemsContainer } from '../components';
@@ -41,7 +41,12 @@ function TopArtists() {
     >
       <Header title='Top Artists' changeInfoRange={changeArtistsRange} />
       {topArtists ? (
-        <ItemsContainer isArtistContent={true}>
+        <ItemsContainer
+          isArtistContent={true}
+          variants={contentAnimation}
+          initial='initial'
+          animate='animate'
+        >
           {topArtists.items.map((artist, index) => (
               <ArtistItem
                 key={index}

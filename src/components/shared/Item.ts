@@ -1,8 +1,9 @@
 import styled, { css } from 'styled-components';
+import { motion } from 'framer-motion';
 import { IItemLayout } from '../../interfaces';
 import Mask from './Mask';
 
-export const ItemsContainer = styled.div<IItemLayout>`
+export const ItemsContainer = styled(motion.div)<IItemLayout>`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: ${({ isArtistContent }) => isArtistContent ? 20 : 30}px;
@@ -17,7 +18,7 @@ export const ItemsContainer = styled.div<IItemLayout>`
   }
 `;
 
-export const ItemsList = styled.div`
+export const ItemsList = styled(motion.div)`
   display: flex;
   flex-direction: column;
   row-gap: 30px;

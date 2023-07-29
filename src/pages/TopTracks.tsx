@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useMenuItem } from '../contexts';
 import { ITracks } from '../interfaces';
 import { Range } from '../constants';
-import { pageAnimation } from '../animations';
+import { pageAnimation, contentAnimation } from '../animations';
 import { getTopTracksShort, getTopTracksMedium, getTopTracksLong } from '../utils';
 import { Header, Loader, TrackItem } from '../layouts';
 import { PageContainer, ItemsList } from '../components';
@@ -41,7 +41,11 @@ function TopTracks() {
     >
       <Header title='Top Tracks' changeInfoRange={changeTracksRange} />
       {topTracks ? (
-        <ItemsList>
+        <ItemsList
+          variants={contentAnimation}
+          initial='initial'
+          animate='animate'
+        >
           {topTracks.items.map((track, index) => (
             <TrackItem key={index} track={track} />
           ))}

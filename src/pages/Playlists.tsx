@@ -4,7 +4,7 @@ import { getPlaylists } from '../utils';
 import { useMenuItem } from '../contexts';
 import { PageRoutes } from '../constants';
 import { IPlaylists } from '../interfaces';
-import { pageAnimation } from '../animations';
+import { pageAnimation, contentAnimation } from '../animations';
 import { Loader, PlaylistPlaceholder } from '../layouts';
 import {
   PageContainer, HeaderTitle, ItemsContainer,
@@ -35,7 +35,12 @@ function Playlists() {
     >
       <HeaderTitle>Your Playlists</HeaderTitle>
       {playlists ? (
-        <ItemsContainer isArtistContent={false}>
+        <ItemsContainer
+          isArtistContent={false}
+          variants={contentAnimation}
+          initial='initial'
+          animate='animate'
+        >
           {playlists.items.map((playlist) => {
             const { id, images, name, owner, tracks } = playlist;
 
