@@ -12,7 +12,7 @@ function App() {
     const accessToken = getAccessToken();
     setAccessToken(accessToken);
   }, []);
-  
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
