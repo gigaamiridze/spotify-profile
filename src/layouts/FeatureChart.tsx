@@ -9,7 +9,7 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { Direction } from '../constants';
-import { IChartProps } from '../interfaces';
+import { IChartProps, IAudioFeatures } from '../interfaces';
 import { HorizontalChartContainer, VerticalChartContainer } from '../components';
 
 ChartJS.register(
@@ -21,28 +21,31 @@ ChartJS.register(
   Title
 );
 
+const properties = [
+  'acousticness',
+  'danceability',
+  'energy',
+  'instrumentalness',
+  'liveness',
+  'speechiness',
+  'valence',
+];
+
 function FeatureChart({ features, direction }: IChartProps) {
-  const { acousticness, danceability, energy, instrumentalness, liveness, speechiness, valence } = features;
+  const avg = (arr: IAudioFeatures[]) => arr.reduce((a, b) => a + b, 0) / arr.length;
 
-  const labels = [
-    'acousticness',
-    'danceability',
-    'energy',
-    'instrumentalness',
-    'liveness',
-    'speechiness',
-    'valence',
-  ];
+  const createDataset = (features: IAudioFeatures | IAudioFeatures[]) => {
+    const dataset: Record<string, any> = {};
+    properties.forEach(prop => {
+      dataset[prop] = features.length
+        ? avg(features.map(feat => feat && feat[prop]))
+        : features[prop];
+    });
+    return dataset;
+  };
 
-  const data = [
-    acousticness,
-    danceability,
-    energy,
-    instrumentalness,
-    liveness,
-    speechiness,
-    valence
-  ];
+  const labels = Object.keys(createDataset(features));
+  const data = Object.values(createDataset(features));
 
   const chartData = {
     labels,

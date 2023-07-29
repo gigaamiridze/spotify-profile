@@ -69,7 +69,7 @@ function Playlist() {
               <GreenButton>get recommendations</GreenButton>
             </Link>
             {audioFeatures && (
-              <FeatureChart features={audioFeatures.audio_features[0]} direction={Direction.HORIZONTAL} />
+              <FeatureChart features={audioFeatures.audio_features} direction={Direction.HORIZONTAL} />
             )}
           </LeftContent>
           <RightContent>
