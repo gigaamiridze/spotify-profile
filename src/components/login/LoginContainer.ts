@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-const LoginContainer = styled.div`
+const LoginContainer = styled(motion.div)`
   width: 100vw;
   height: 100vh;
   display: flex;

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useMenuItem } from '../contexts';
 import { getRecentlyPlayed } from '../utils';
+import { pageAnimation } from '../animations';
 import { IRecentlyPlayed } from '../interfaces';
 import { TrackItem, Loader } from '../layouts';
 import { PageContainer, HeaderTitle, ItemsList } from '../components';
@@ -20,7 +21,12 @@ function RecentlyPlayed() {
   }
 
   return (
-    <PageContainer>
+    <PageContainer
+      variants={pageAnimation}
+      initial='initial'
+      animate='animate'
+      exit='exit'
+    >
       <HeaderTitle>Recently Played Tracks</HeaderTitle>
       {recentlyPlayed ? (
         <ItemsList>

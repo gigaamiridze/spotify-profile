@@ -4,6 +4,7 @@ import { getPlaylists } from '../utils';
 import { useMenuItem } from '../contexts';
 import { PageRoutes } from '../constants';
 import { IPlaylists } from '../interfaces';
+import { pageAnimation } from '../animations';
 import { Loader, PlaylistPlaceholder } from '../layouts';
 import {
   PageContainer, HeaderTitle, ItemsContainer,
@@ -26,7 +27,12 @@ function Playlists() {
   }
 
   return (
-    <PageContainer>
+    <PageContainer
+      variants={pageAnimation}
+      initial='initial'
+      animate='animate'
+      exit='exit'
+    >
       <HeaderTitle>Your Playlists</HeaderTitle>
       {playlists ? (
         <ItemsContainer isArtistContent={false}>

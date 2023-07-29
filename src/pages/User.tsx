@@ -4,6 +4,7 @@ import { UserIcon } from '../assets';
 import { getUserInfo } from '../utils';
 import { useMenuItem } from '../contexts';
 import { PageRoutes } from '../constants';
+import { pageAnimation } from '../animations';
 import { IUser, IFollowing, IPlaylists, IArtists, ITracks } from '../interfaces';
 import { Logout, Loader, ArtistItem, TrackItem } from '../layouts';
 import {
@@ -38,7 +39,12 @@ function User() {
   return (
     <>
       {user ? (
-        <UserContainer>
+        <UserContainer
+          variants={pageAnimation}
+          initial='initial'
+          animate='animate'
+          exit='exit'
+        >
           <Header>
             {user.images.length > 0 ? (
               <Avatar

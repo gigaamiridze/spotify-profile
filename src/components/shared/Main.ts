@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-const Main = styled.main`
+const Main = styled(motion.main)`
   width: 100%;
   padding: 80px;
 

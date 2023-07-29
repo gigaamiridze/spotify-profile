@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useMenuItem } from '../contexts';
 import { ITracks } from '../interfaces';
 import { Range } from '../constants';
+import { pageAnimation } from '../animations';
 import { getTopTracksShort, getTopTracksMedium, getTopTracksLong } from '../utils';
 import { Header, Loader, TrackItem } from '../layouts';
 import { PageContainer, ItemsList } from '../components';
@@ -32,7 +33,12 @@ function TopTracks() {
   }
 
   return (
-    <PageContainer>
+    <PageContainer
+      variants={pageAnimation}
+      initial='initial'
+      animate='animate'
+      exit='exit'
+    >
       <Header title='Top Tracks' changeInfoRange={changeTracksRange} />
       {topTracks ? (
         <ItemsList>

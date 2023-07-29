@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useMenuItem } from '../contexts';
 import { IArtists } from '../interfaces';
 import { Range } from '../constants';
+import { pageAnimation } from '../animations';
 import { getTopArtistsShort, getTopArtistsMedium, getTopArtistsLong } from '../utils';
 import { Header, Loader, ArtistItem } from '../layouts';
 import { PageContainer, ItemsContainer } from '../components';
@@ -32,7 +33,12 @@ function TopArtists() {
   }
 
   return (
-    <PageContainer>
+    <PageContainer
+      variants={pageAnimation}
+      initial='initial'
+      animate='animate'
+      exit='exit'
+    >
       <Header title='Top Artists' changeInfoRange={changeArtistsRange} />
       {topArtists ? (
         <ItemsContainer isArtistContent={true}>

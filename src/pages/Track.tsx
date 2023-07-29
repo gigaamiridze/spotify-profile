@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useMenuItem } from '../contexts';
 import { Direction } from '../constants';
+import { pageAnimation } from '../animations';
 import { ITrack, IAudioAnalysis, IAudioFeatures } from '../interfaces';
 import { getTrackInfo, getYear, formatDuration, parsePitchClass } from '../utils';
 import { Loader, FeatureChart } from '../layouts';
@@ -39,7 +40,12 @@ function Track() {
   return (
     <>
       {track ? (
-        <TrackContainer>
+        <TrackContainer
+          variants={pageAnimation}
+          initial='initial'
+          animate='animate'
+          exit='exit'
+        >
           <TopContainer>
             <CoverImage src={track.album.images[0].url} alt='track cover image' />
             <Info>

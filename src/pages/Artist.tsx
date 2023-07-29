@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useMenuItem } from '../contexts';
 import { IArtist } from '../interfaces';
 import { UserIcon } from '../assets';
+import { pageAnimation } from '../animations';
 import { getArtist, formatWithCommas } from '../utils';
 import { Loader } from '../layouts';
 import {
@@ -33,7 +34,12 @@ function Artist() {
   return (
     <>
       {artist ? (
-        <ArtistContainer>
+        <ArtistContainer
+          variants={pageAnimation}
+          initial='initial'
+          animate='animate'
+          exit='exit'
+        >
           {artist.images.length > 0 ? (
             <ArtistImage
               src={artist.images[0].url}

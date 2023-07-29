@@ -4,6 +4,7 @@ import { getPlaylist, getAudioFeaturesForTracks } from '../utils';
 import { PageRoutes, Direction } from '../constants';
 import { IAudioFeaturesForTrack, IPlaylist } from '../interfaces';
 import { useMenuItem } from '../contexts';
+import { pageAnimation } from '../animations';
 import { Loader, PlaylistPlaceholder, TrackItem, FeatureChart } from '../layouts';
 import {
   PlaylistContainer, ItemImage, LeftContent,
@@ -46,7 +47,12 @@ function Playlist() {
   return (
     <>
       {playlist ? (
-        <PlaylistContainer>
+        <PlaylistContainer
+          variants={pageAnimation}
+          initial='initial'
+          animate='animate'
+          exit='exit'
+        >
           <LeftContent>
             {playlist.images.length > 0 ? (
               <ItemImage

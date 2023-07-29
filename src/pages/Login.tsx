@@ -1,5 +1,6 @@
 import { SpotifyLogo } from '../assets';
 import { Client, Url } from '../constants';
+import { pageAnimation } from '../animations';
 import { LoginContainer, LoginButton, Logo } from '../components';
 
 function Login() {
@@ -9,7 +10,12 @@ function Login() {
   }
 
   return (
-    <LoginContainer>
+    <LoginContainer
+      variants={pageAnimation}
+      initial='initial'
+      animate='animate'
+      exit='exit'
+    >
       <Logo src={SpotifyLogo} alt='spotify' />
       <LoginButton onClick={handleClick}>
         log in to spotify
