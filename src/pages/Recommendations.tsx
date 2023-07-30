@@ -9,7 +9,10 @@ import {
   doesUserFollowPlaylist, addTracksToPlaylist,
   followPlaylist, createPlaylist
 } from '../utils';
-import { PageContainer, HeaderTitle, ItemsList } from '../components';
+import {
+  PageContainer, RecommendationsHeader, HeaderTitle,
+  ItemsList, OpenButton, GreenButton
+} from '../components';
 
 function Recommendations() {
   const { playlistId } = useParams();
@@ -68,7 +71,7 @@ function Recommendations() {
         await followPlaylist(recPlaylistId);
       }
     }
-  };
+  }
 
   const createPlaylistOnSave = async () => {
     if (!userId) return;
@@ -87,12 +90,25 @@ function Recommendations() {
           animate='animate'
           exit='exit'
         >
-          <HeaderTitle>
-            Recommended Tracks Based On&nbsp;
-            <Link to={`${PageRoutes.HOST}/${PageRoutes.PLAYLIST}/${playlist.id}`}>
-              {playlist.name}
-            </Link>
-          </HeaderTitle>
+          <RecommendationsHeader>
+            <HeaderTitle>
+              Recommended Tracks Based On&nbsp;
+              <Link to={`${PageRoutes.HOST}/${PageRoutes.PLAYLIST}/${playlist.id}`}>
+                {playlist.name}
+              </Link>
+            </HeaderTitle>
+            {isFollowing && recPlaylistId ? (
+              <a
+                href={`https://open.spotify.com/playlist/${recPlaylistId}`}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <OpenButton>Open in Spotify</OpenButton>
+              </a>
+            ) : (
+              <GreenButton onClick={createPlaylistOnSave}>Save to Spotify</GreenButton>
+            )}
+          </RecommendationsHeader>
           {recommendations && (
             <ItemsList
               variants={contentAnimation}

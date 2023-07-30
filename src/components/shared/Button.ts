@@ -50,3 +50,8 @@ export const SeeMoreButton = styled(Button)`
     padding: 9px 17px;
   }
 `;
+
+export const OpenButton = styled(Button)`
+  white-space: nowrap;
+  padding: 11px 24px;
+`;
