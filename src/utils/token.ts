@@ -9,7 +9,7 @@ const getAccessTokenFromHash = () => {
   }
 }
 
-const getLocalAccessToken = () => localStorage.getItem(Spotify.ACCESS_TOKEN);
+export const getLocalAccessToken = () => localStorage.getItem(Spotify.ACCESS_TOKEN);
 const setLocalAccessToken = (token: string) => localStorage.setItem(Spotify.ACCESS_TOKEN, token);
 
 export const getAccessToken = () => {
@@ -22,4 +22,9 @@ export const getAccessToken = () => {
   }
 
   return localAccessToken;
+}
+
+export const handleLogout = () => {
+  localStorage.removeItem(Spotify.ACCESS_TOKEN);
+  location.reload();
 }
