@@ -72,6 +72,18 @@ export const doesUserFollowPlaylist = (playlistId: string, userId: string) =>
     headers,
   });
 
+// Add Tracks to a Playlist
+export const addTracksToPlaylist = (playlistId: string, uris: string) => {
+  const url = `https://api.spotify.com/v1/playlists/${playlistId}/tracks?uris=${uris}`;
+  return axios({ method: 'post', url, headers });
+};
+
+// Follow a Playlist
+export const followPlaylist = (playlistId: string) => {
+  const url = `https://api.spotify.com/v1/playlists/${playlistId}/followers`;
+  return axios({ method: 'put', url, headers });
+};
+
 // Get Recommendations Based on Seeds
 export const getRecommendationsForTracks = (tracks: IPlaylistTrackItem[]) => {
   const shuffledTracks = tracks.sort(() => 0.5 - Math.random());
