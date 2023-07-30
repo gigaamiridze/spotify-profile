@@ -4,12 +4,13 @@ import { PageRoutes } from '../constants';
 import { Loader, TrackItem } from '../layouts';
 import { IPlaylist, IRecommendations } from '../interfaces';
 import { pageAnimation, contentAnimation } from '../animations';
-import { getPlaylist, getRecommendationsForTracks,  getUser } from '../utils';
+import { getPlaylist, getRecommendationsForTracks, getUser, doesUserFollowPlaylist } from '../utils';
 import { PageContainer, HeaderTitle, ItemsList } from '../components';
 
 function Recommendations() {
   const { playlistId } = useParams();
   const [userId, setUserId] = useState<string | null>(null);
+  const [isFollowing, setIsFollowing] = useState<boolean>(false);
   const [playlist, setPlaylist] = useState<IPlaylist | null>(null);
   const [recommendations, setRecommendations] = useState<IRecommendations | null>(null);
 
@@ -21,6 +22,10 @@ function Recommendations() {
   useEffect(() => {
     getRecommendationsInfo();
   }, [playlist]);
+
+  useEffect(() => {
+    isUserFollowingPlaylist();
+  }, [recommendations, userId]);
 
   const getPlaylistInfo = async () => {
     if (playlistId) {
@@ -39,6 +44,13 @@ function Recommendations() {
   const getUserId = async () => {
     const { data } = await getUser();
     setUserId(data.id);
+  }
+
+  const isUserFollowingPlaylist = async () => {
+    if (playlistId && userId) {
+      const { data } = await doesUserFollowPlaylist(playlistId, userId);
+      setIsFollowing(data[0]);
+    }
   }
 
   return (

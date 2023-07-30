@@ -66,6 +66,12 @@ const getTrackAudioAnalysis = (trackId: string) =>
 const getTrackAudioFeatures = (trackId: string) =>
   axios.get(`https://api.spotify.com/v1/audio-features/${trackId}`, { headers });
 
+// Check if Users Follow a Playlist
+export const doesUserFollowPlaylist = (playlistId: string, userId: string) =>
+  axios.get(`https://api.spotify.com/v1/playlists/${playlistId}/followers/contains?ids=${userId}`, {
+    headers,
+  });
+
 // Get Recommendations Based on Seeds
 export const getRecommendationsForTracks = (tracks: IPlaylistTrackItem[]) => {
   const shuffledTracks = tracks.sort(() => 0.5 - Math.random());
