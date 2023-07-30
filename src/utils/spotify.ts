@@ -5,7 +5,7 @@ import { IPlaylistTrackItem } from '../interfaces';
 const { headers } = requestConfig;
 
 // Get Current User's Profile
-const getUser = () => axios.get('/', { ...requestConfig });
+export const getUser = () => axios.get('/', { ...requestConfig });
 
 // Get User's Followed Artists
 const getFollowing = () => axios.get('/following?type=artist', { ...requestConfig });

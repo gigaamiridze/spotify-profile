@@ -20,6 +20,6 @@ export const getAccessToken = () => {
     setLocalAccessToken(accessToken);
     return accessToken;
   }
-  
+
   return localAccessToken;
 }
