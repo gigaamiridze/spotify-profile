@@ -84,6 +84,13 @@ export const followPlaylist = (playlistId: string) => {
   return axios({ method: 'put', url, headers });
 };
 
+// Create a Playlist (The playlist will be empty until you add tracks)
+export const createPlaylist = (userId: string, name: string) => {
+  const url = `https://api.spotify.com/v1/users/${userId}/playlists`;
+  const data = JSON.stringify({ name });
+  return axios({ method: 'post', url, headers, data });
+};
+
 // Get Recommendations Based on Seeds
 export const getRecommendationsForTracks = (tracks: IPlaylistTrackItem[]) => {
   const shuffledTracks = tracks.sort(() => 0.5 - Math.random());

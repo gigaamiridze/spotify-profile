@@ -6,7 +6,8 @@ import { IPlaylist, IRecommendations } from '../interfaces';
 import { pageAnimation, contentAnimation } from '../animations';
 import {
   getPlaylist, getRecommendationsForTracks, getUser,
-  doesUserFollowPlaylist, addTracksToPlaylist, followPlaylist
+  doesUserFollowPlaylist, addTracksToPlaylist,
+  followPlaylist, createPlaylist
 } from '../utils';
 import { PageContainer, HeaderTitle, ItemsList } from '../components';
 
@@ -60,16 +61,22 @@ function Recommendations() {
 
   const addTracksAndFollow = async () => {
     const uris = recommendations?.tracks.map(({ uri }) => uri).join(',');
-    console.log('uris', uris);
     if (recPlaylistId && uris) {
       const { data } = await addTracksToPlaylist(recPlaylistId, uris);
-      console.log(data);
 
       if (data) {
         await followPlaylist(recPlaylistId);
       }
     }
   };
+
+  const createPlaylistOnSave = async () => {
+    if (!userId) return;
+
+    const name = `Recommended Tracks Based on ${playlist?.name}`;
+    const { data } = await createPlaylist(userId, name);
+    setRecPlaylistId(data.id);
+  }
 
   return (
     <>
