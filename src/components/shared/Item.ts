@@ -53,15 +53,15 @@ export const ItemArtwork = styled.div<IItemLayout>`
   
   @media (max-width: 768px) {
     ${({ isArtistContent }) => css`
-      width: ${isArtistContent && 150}px;
-      height: ${isArtistContent && 150}px;
+      width: ${isArtistContent && '150px'};
+      height: ${isArtistContent && '150px'};
     `}
   }
 
   @media (max-width: 480px) {
     ${({ isArtistContent }) => css`
-      width: ${isArtistContent && 120}px;
-      height: ${isArtistContent && 120}px;
+      width: ${isArtistContent && '120px'};
+      height: ${isArtistContent && '120px'};
     `}
   }
 `;
@@ -83,9 +83,7 @@ export const ItemMeta = styled.div`
     flex-direction: column;
     align-items: flex-start;
     row-gap: 5px;
-    white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
   }
 `;
 
@@ -96,6 +94,7 @@ export const ItemName = styled.span<IItemLayout>`
     margin-bottom: ${isArtistContent && '20px'};
   `}
   font-size: 16px;
+  white-space: nowrap;
   border-bottom: 1px solid transparent;
 
   &:hover {
@@ -106,4 +105,8 @@ export const ItemName = styled.span<IItemLayout>`
 export const ItemGreyTitle = styled.span`
   color: ${({ theme }) => theme.colors.lightGrey};
   font-size: 14px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
