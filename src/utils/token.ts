@@ -1,5 +1,7 @@
 import { Spotify } from '../constants';
 
+const EXPIRATION_TIME = 3600 * 1000;
+
 const getAccessTokenFromHash = () => {
   const hash = location.hash.substring(1);
 
@@ -9,8 +11,14 @@ const getAccessTokenFromHash = () => {
   }
 }
 
-export const getLocalAccessToken = () => localStorage.getItem(Spotify.ACCESS_TOKEN);
-const setLocalAccessToken = (token: string) => localStorage.setItem(Spotify.ACCESS_TOKEN, token);
+const getTokenTimestamp = () => localStorage.getItem(Spotify.TOKEN_TIMESTAMP);
+const getLocalAccessToken = () => localStorage.getItem(Spotify.ACCESS_TOKEN);
+
+const setTokenTimestamp = () => localStorage.setItem(Spotify.TOKEN_TIMESTAMP, String(Date.now()));
+const setLocalAccessToken = (token: string) => {
+  setTokenTimestamp();
+  localStorage.setItem(Spotify.ACCESS_TOKEN, token);
+};
 
 export const getAccessToken = () => {
   const accessToken = getAccessTokenFromHash();
@@ -24,7 +32,16 @@ export const getAccessToken = () => {
   return localAccessToken;
 }
 
+export const handleExpiredToken = () => {
+  const tokenTimestamp = Number(getTokenTimestamp());
+
+  if (Date.now() - tokenTimestamp > EXPIRATION_TIME) {
+    handleLogout();
+  }
+}
+
 export const handleLogout = () => {
+  localStorage.removeItem(Spotify.TOKEN_TIMESTAMP);
   localStorage.removeItem(Spotify.ACCESS_TOKEN);
   location.reload();
 }

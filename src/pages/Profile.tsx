@@ -1,22 +1,12 @@
 import { useEffect } from 'react';
 import { Router } from '../router';
+import { handleExpiredToken } from '../utils';
 import { ContentWrapper } from '../components';
 import { Navbar, ScrollToTop } from '../layouts';
-import { getLocalAccessToken, handleLogout } from '../utils';
 
 function Profile() {
-  const EXPIRATION_TIME = 3600 * 1000;
-
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      const localAccessToken = getLocalAccessToken();
-
-      if (localAccessToken) {
-        handleLogout();
-      }
-    }, EXPIRATION_TIME);
-
-    return () => clearInterval(intervalId);
+    handleExpiredToken();
   }, []);
 
   return (
