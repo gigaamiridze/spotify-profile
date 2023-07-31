@@ -1,5 +1,5 @@
 export enum PageRoutes {
-  HOST = 'http://localhost:5000',
+  HOST = 'https://spotify-profile-geo.vercel.app',
   ROOT = '/',
   ARTISTS = 'artists',
   ARTIST = 'artist',
