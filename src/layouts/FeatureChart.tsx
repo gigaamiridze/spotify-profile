@@ -1,15 +1,16 @@
 import {
   Chart as ChartJS,
+  ChartOptions,
   BarElement,
   CategoryScale,
   LinearScale,
   Tooltip,
   Legend,
-  Title
+  Title,
 } from 'chart.js';
-import { Bar } from 'react-chartjs-2';
+import { Bar,  } from 'react-chartjs-2';
 import { Direction } from '../constants';
-import { IChartProps, IAudioFeatures } from '../interfaces';
+import { IChartProps } from '../interfaces';
 import { HorizontalChartContainer, VerticalChartContainer } from '../components';
 
 ChartJS.register(
@@ -32,15 +33,19 @@ const properties = [
 ];
 
 function FeatureChart({ features, direction }: IChartProps) {
-  const avg = (arr: IAudioFeatures[]) => arr.reduce((a, b) => a + b, 0) / arr.length;
+  const avg = (arr: number[]) => {
+    return arr.reduce((a, b) => a + b, 0) / arr.length;
+  };
 
-  const createDataset = (features: IAudioFeatures | IAudioFeatures[]) => {
-    const dataset: Record<string, any> = {};
+  const createDataset = (features: any) => {
+    const dataset: Record<string, number> = {};
+
     properties.forEach(prop => {
       dataset[prop] = features.length
-        ? avg(features.map(feat => feat && feat[prop]))
+        ? avg(features.map((feat: Record<string, number>) => feat && feat[prop]))
         : features[prop];
     });
+
     return dataset;
   };
 
@@ -76,7 +81,7 @@ function FeatureChart({ features, direction }: IChartProps) {
     ],
   };
 
-  const chartOptions = {
+  const chartOptions: ChartOptions<'bar'> = {
     indexAxis: direction === Direction.HORIZONTAL ? 'y' : 'x',
     responsive: true,
     maintainAspectRatio: false,
@@ -124,9 +129,6 @@ function FeatureChart({ features, direction }: IChartProps) {
     },
     layout: {
       padding: 0,
-    },
-    legend: {
-      display: false,
     },
   };
 
